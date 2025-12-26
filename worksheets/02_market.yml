@@ -1,0 +1,236 @@
+# =============================================================================
+# Phase 2: 市場分析・顧客バリデーション
+# =============================================================================
+# 完了条件: TAM/SAM/SOM算出、50人以上のインタビュー完了
+# 所要時間目安: 2-4週間
+# 次のフェーズへ: validation.overall_status が "validated" になること
+# =============================================================================
+
+_meta:
+  phase: 2
+  name: "市場分析・顧客バリデーション"
+  status: "not_started"
+  started_at: null
+  completed_at: null
+  outputs:
+    - "pitch_deck.market_size"
+    - "pitch_deck.target_customer"
+
+# =============================================================================
+# 2.1 市場規模 [REQUIRED]
+# =============================================================================
+market_size:
+  # TAM (Total Addressable Market) - 最大市場規模
+  tam:
+    value_jpy: null           # 円
+    value_usd: null           # ドル
+    calculation_method: ""    # どう算出したか
+    data_sources:             # データソース
+      - ""
+    assumptions:              # 前提条件
+      - ""
+
+  # SAM (Serviceable Addressable Market) - 実際にアプローチ可能な市場
+  sam:
+    value_jpy: null
+    value_usd: null
+    calculation_method: ""
+    geographic_scope: ""      # 日本 / アジア / グローバル
+    segment_focus: ""         # どのセグメントに絞るか
+
+  # SOM (Serviceable Obtainable Market) - 現実的に獲得可能な市場
+  som:
+    value_jpy: null
+    value_usd: null
+    target_market_share: null # %（5年後目標）
+    calculation_method: ""
+
+  # 市場成長率
+  growth:
+    cagr: null                # 年平均成長率（%）
+    growth_drivers:           # 成長ドライバー
+      - ""
+    data_source: ""
+
+# =============================================================================
+# 2.2 ターゲット顧客の詳細 [REQUIRED]
+# =============================================================================
+target_customer:
+  # 理想的な顧客プロファイル (ICP)
+  icp:
+    company_size: ""          # 例: "従業員10-100人"
+    industry: ""              # 例: "製造業、小売業"
+    geography: ""             # 例: "日本国内、都市部"
+    technology_adoption: ""   # 例: "クラウドサービス利用経験あり"
+    budget_range: ""          # 例: "月額1-5万円のSaaSに支払い実績"
+    decision_maker: ""        # 例: "経理部長、CFO"
+    pain_urgency: ""          # 例: "人手不足で今すぐ解決したい"
+
+  # ペルソナ（具体的な1人）
+  persona:
+    name: ""                  # 架空の名前
+    age: null
+    job_title: ""
+    company_type: ""
+    daily_challenges:
+      - ""
+    goals:
+      - ""
+    frustrations:
+      - ""
+    quote: ""                 # この人が言いそうなこと
+
+  # アーリーアダプター特性
+  early_adopter:
+    characteristics:
+      - ""
+    where_to_find: ""         # どこで見つけられるか
+    motivation: ""            # なぜ早期に採用するか
+
+# =============================================================================
+# 2.3 競合分析 [REQUIRED]
+# =============================================================================
+competitors:
+  # 直接競合
+  direct:
+    - name: ""
+      website: ""
+      description: ""
+      pricing: ""
+      strengths:
+        - ""
+      weaknesses:
+        - ""
+      market_share: ""
+      funding: ""             # 調達額
+
+    - name: ""
+      website: ""
+      description: ""
+      pricing: ""
+      strengths:
+        - ""
+      weaknesses:
+        - ""
+      market_share: ""
+      funding: ""
+
+  # 間接競合
+  indirect:
+    - name: ""
+      description: ""
+      why_indirect: ""        # なぜ間接競合か
+
+  # 競合マトリクス
+  comparison_matrix:
+    criteria:                 # 比較軸
+      - name: ""
+        our_score: null       # 1-5
+        competitor_1_score: null
+        competitor_2_score: null
+
+  # 差別化ポイント
+  differentiation:
+    primary: ""               # 最大の差別化要因
+    secondary: ""
+    defensibility: ""         # なぜ真似されにくいか
+
+# =============================================================================
+# 2.4 顧客バリデーション [REQUIRED]
+# =============================================================================
+validation:
+  # インタビュー実績
+  interviews:
+    target_count: 50
+    completed_count: 0
+
+    # インタビュー記録
+    records:
+      - id: 1
+        date: ""
+        interviewee_profile: ""
+        company_size: ""
+        current_solution: ""
+        pain_level: null      # 1-10（10が最も痛い）
+        willingness_to_pay: null  # 円/月
+        would_be_reference: false # 導入事例として紹介可能か
+        key_insights:
+          - ""
+        quotes:
+          - ""
+
+  # バリデーション結果サマリー
+  summary:
+    avg_pain_level: null
+    avg_willingness_to_pay: null
+    top_pain_points:
+      - point: ""
+        mention_count: null
+      - point: ""
+        mention_count: null
+      - point: ""
+        mention_count: null
+    top_feature_requests:
+      - feature: ""
+        mention_count: null
+
+  # Sean Ellis テスト
+  sean_ellis_test:
+    question: "もしこの製品が使えなくなったらどう感じますか？"
+    responses:
+      very_disappointed: 0    # 非常に残念
+      somewhat_disappointed: 0
+      not_disappointed: 0
+    very_disappointed_rate: null  # 40%以上が目標
+
+  # 全体的なバリデーション状況
+  overall_status: "in_progress"  # not_started / in_progress / validated / need_pivot
+  confidence_level: null      # 1-10
+  next_steps: ""
+
+# =============================================================================
+# 2.5 価格感度分析 [REQUIRED]
+# =============================================================================
+pricing_research:
+  # Van Westendorp 価格感度分析
+  van_westendorp:
+    too_cheap: null           # これ以下だと品質を疑う価格
+    cheap: null               # 安いと感じる価格
+    expensive: null           # 高いと感じる価格
+    too_expensive: null       # 高すぎて買わない価格
+    optimal_price: null       # 最適価格（自動計算用）
+    acceptable_range:
+      min: null
+      max: null
+
+  # 競合との価格比較
+  competitive_pricing:
+    competitor_1:
+      name: ""
+      price: null
+    competitor_2:
+      name: ""
+      price: null
+    our_target_price: null
+    positioning: ""           # premium / competitive / budget
+
+# =============================================================================
+# Phase 2 完了チェックリスト
+# =============================================================================
+_completion_checklist:
+  - item: "TAM/SAM/SOMが算出されている"
+    completed: false
+  - item: "データソースが明記されている"
+    completed: false
+  - item: "ICPが明確に定義されている"
+    completed: false
+  - item: "競合を3社以上分析している"
+    completed: false
+  - item: "差別化ポイントが明確"
+    completed: false
+  - item: "インタビューを30人以上実施"
+    completed: false
+  - item: "Sean Ellisテストで40%以上達成"
+    completed: false
+  - item: "価格感度分析を実施"
+    completed: false

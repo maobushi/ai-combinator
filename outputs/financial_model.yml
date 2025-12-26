@@ -1,0 +1,447 @@
+# =============================================================================
+# 財務モデル - ユニットエコノミクスドリブン
+# =============================================================================
+# 全ての数値はユニットエコノミクスから導出される
+# worksheets/00_unit_economics.yml の値がここに反映される
+# =============================================================================
+
+_meta:
+  version: "2.0"
+  currency: "JPY"
+  target_mrr: 4000000
+  philosophy: |
+    このモデルの核心：
+    1. まずユニットエコノミクスを健全にする
+    2. 健全なユニットエコノミクスを前提に成長計画を立てる
+    3. 成長のためにユニットエコノミクスを犠牲にしない
+
+# =============================================================================
+# SECTION 1: ユニットエコノミクス（全ての基盤）
+# =============================================================================
+unit_economics:
+  # ソース: worksheets/00_unit_economics.yml
+
+  # === 収益の単位 ===
+  revenue:
+    arpu:
+      value: null             # 円/月
+      source: "worksheets/00_unit_economics.yml > arpu_design.calculated_arpu"
+
+    arpu_breakdown:
+      starter:
+        price: null
+        mix: null             # %
+      pro:
+        price: null
+        mix: null
+      enterprise:
+        price: null
+        mix: null
+
+  # === コスト構造 ===
+  costs:
+    # 粗利率
+    gross_margin:
+      percent: null           # 目標: 70%以上
+      cogs_per_customer: null # 1顧客あたりの原価/月
+
+    # CAC（顧客獲得コスト）
+    cac:
+      blended: null           # 加重平均CAC
+      by_channel:
+        organic: null
+        paid: null
+        referral: null
+        sales: null
+
+  # === 顧客維持 ===
+  retention:
+    monthly_churn_rate: null  # %（目標: 5%以下）
+    avg_lifespan_months: null # = 1 / churn_rate
+    nrr: null                 # Net Revenue Retention %
+
+  # === LTV（顧客生涯価値）===
+  ltv:
+    formula: "ARPU × 粗利率 × 顧客寿命"
+    calculation:
+      arpu: null
+      gross_margin: null
+      lifespan_months: null
+    value: null               # 計算結果
+
+  # === 黄金比率 ===
+  golden_ratios:
+    ltv_cac:
+      formula: "LTV ÷ CAC"
+      value: null
+      target: 3
+      status: ""              # critical / warning / healthy / excellent
+
+    cac_payback:
+      formula: "CAC ÷ (ARPU × 粗利率)"
+      months: null
+      target: 12
+      status: ""
+
+    magic_number:
+      formula: "(今四半期MRR - 前四半期MRR) × 4 ÷ 前四半期S&M費用"
+      value: null
+      interpretation: |
+        < 0.5: 非効率（S&Mを減らすべき）
+        0.5-0.75: 改善必要
+        0.75-1.0: 健全
+        > 1.0: 効率的（S&Mを増やせる）
+
+# =============================================================================
+# SECTION 2: MRR 400万円逆算モデル
+# =============================================================================
+mrr_4m_model:
+  target: 4000000
+
+  # ユニットエコノミクスからの逆算
+  reverse_calculation:
+    # 必要顧客数
+    required_customers:
+      formula: "目標MRR ÷ ARPU"
+      arpu: null
+      result: null
+
+    # 月間必要新規顧客数（チャーンを考慮）
+    monthly_new_customers_needed:
+      formula: "目標顧客数 × チャーン率 + 純増分"
+      at_target_state: null   # 定常状態での月間新規
+
+    # 月間CAC予算
+    monthly_cac_budget:
+      formula: "月間新規顧客 × CAC"
+      at_target_state: null
+
+  # シナリオ分析
+  scenarios:
+    # シナリオ1: ARPU 1万円
+    low_arpu:
+      arpu: 10000
+      required_customers: 400
+      cac_assumption: null
+      total_cac_to_target: null
+      ltv_cac_ratio: null
+      viable: null            # true/false
+
+    # シナリオ2: ARPU 4万円
+    mid_arpu:
+      arpu: 40000
+      required_customers: 100
+      cac_assumption: null
+      total_cac_to_target: null
+      ltv_cac_ratio: null
+      viable: null
+
+    # シナリオ3: ARPU 10万円
+    high_arpu:
+      arpu: 100000
+      required_customers: 40
+      cac_assumption: null
+      total_cac_to_target: null
+      ltv_cac_ratio: null
+      viable: null
+
+  # 選択したシナリオ
+  chosen_scenario:
+    arpu: null
+    required_customers: null
+    rationale: ""
+
+# =============================================================================
+# SECTION 3: 成長モデル（ユニットエコノミクスを維持しながら）
+# =============================================================================
+growth_model:
+  # 成長の制約条件（これを守らないと破綻）
+  constraints:
+    ltv_cac_minimum: 3
+    cac_payback_maximum_months: 12
+    churn_maximum_percent: 5
+    gross_margin_minimum_percent: 70
+
+  # 月次成長シミュレーション
+  monthly_projection:
+    - month: 1
+      # 顧客動態
+      starting_customers: 0
+      new_customers: null
+      churned_customers: null
+      ending_customers: null
+
+      # MRR動態
+      starting_mrr: 0
+      new_mrr: null
+      expansion_mrr: null
+      churned_mrr: null
+      ending_mrr: null
+
+      # ユニットエコノミクス
+      arpu: null
+      cac_this_month: null
+      ltv_cac_ratio: null
+
+      # コスト
+      cac_spend: null
+      fixed_costs: null
+      variable_costs: null
+      total_costs: null
+
+      # P&L
+      revenue: null
+      gross_profit: null
+      operating_profit: null
+
+      # キャッシュ
+      net_cash_flow: null
+      ending_cash: null
+
+    - month: 3
+      starting_customers: null
+      new_customers: null
+      churned_customers: null
+      ending_customers: null
+      starting_mrr: null
+      new_mrr: null
+      expansion_mrr: null
+      churned_mrr: null
+      ending_mrr: null
+      arpu: null
+      ltv_cac_ratio: null
+      gross_profit: null
+      operating_profit: null
+      ending_cash: null
+
+    - month: 6
+      ending_customers: null
+      ending_mrr: null
+      ltv_cac_ratio: null
+      operating_profit: null
+      ending_cash: null
+
+    - month: 12
+      ending_customers: null
+      ending_mrr: null        # 目標チェックポイント
+      ltv_cac_ratio: null
+      operating_profit: null
+      ending_cash: null
+
+    - month: 18
+      ending_customers: null
+      ending_mrr: null
+      ltv_cac_ratio: null
+      operating_profit: null
+      ending_cash: null
+
+    - month: 24
+      ending_customers: null
+      ending_mrr: null
+      ltv_cac_ratio: null
+      operating_profit: null
+      ending_cash: null
+
+# =============================================================================
+# SECTION 4: 感度分析（ユニットエコノミクス変動の影響）
+# =============================================================================
+sensitivity_analysis:
+  # ARPUの感度
+  arpu_sensitivity:
+    - change_percent: -20
+      new_arpu: null
+      impact_on_ltv: null
+      impact_on_ltv_cac: null
+      months_to_4m_mrr: null
+
+    - change_percent: 0
+      new_arpu: null
+      impact_on_ltv: null
+      impact_on_ltv_cac: null
+      months_to_4m_mrr: null
+
+    - change_percent: +20
+      new_arpu: null
+      impact_on_ltv: null
+      impact_on_ltv_cac: null
+      months_to_4m_mrr: null
+
+  # CACの感度
+  cac_sensitivity:
+    - change_percent: -20
+      new_cac: null
+      impact_on_ltv_cac: null
+      impact_on_payback: null
+
+    - change_percent: 0
+      new_cac: null
+      impact_on_ltv_cac: null
+      impact_on_payback: null
+
+    - change_percent: +20
+      new_cac: null
+      impact_on_ltv_cac: null
+      impact_on_payback: null
+
+  # チャーン率の感度（最も影響が大きい）
+  churn_sensitivity:
+    - churn_rate: 2
+      lifespan_months: 50
+      ltv: null
+      ltv_cac_ratio: null
+
+    - churn_rate: 5
+      lifespan_months: 20
+      ltv: null
+      ltv_cac_ratio: null
+
+    - churn_rate: 8
+      lifespan_months: 12.5
+      ltv: null
+      ltv_cac_ratio: null
+
+    - churn_rate: 10
+      lifespan_months: 10
+      ltv: null
+      ltv_cac_ratio: null
+
+  # 複合シナリオ
+  combined_scenarios:
+    - name: "ベストケース"
+      arpu_change: +10
+      cac_change: -10
+      churn_change: -20
+      resulting_ltv_cac: null
+      months_to_4m: null
+
+    - name: "ベースケース"
+      arpu_change: 0
+      cac_change: 0
+      churn_change: 0
+      resulting_ltv_cac: null
+      months_to_4m: null
+
+    - name: "ワーストケース"
+      arpu_change: -10
+      cac_change: +20
+      churn_change: +30
+      resulting_ltv_cac: null
+      months_to_4m: null
+
+# =============================================================================
+# SECTION 5: 損益分岐点分析
+# =============================================================================
+break_even_analysis:
+  # 顧客ベースの損益分岐点
+  customer_break_even:
+    monthly_fixed_costs: null
+    contribution_margin_per_customer: null  # = ARPU × 粗利率
+    break_even_customers: null              # = 固定費 ÷ 貢献利益
+    current_customers: null
+    gap: null
+
+  # MRRベースの損益分岐点
+  mrr_break_even:
+    break_even_mrr: null      # = break_even_customers × ARPU
+    current_mrr: null
+    gap: null
+    months_to_break_even: null
+
+  # CAC回収を含めた真の損益分岐点
+  true_break_even:
+    description: "顧客獲得コストを回収するまでの期間を考慮"
+    avg_cac: null
+    monthly_contribution: null  # = ARPU × 粗利率
+    payback_months: null
+    break_even_with_cac_recovery: null
+
+# =============================================================================
+# SECTION 6: 資金需要分析
+# =============================================================================
+funding_analysis:
+  # 現在の状態
+  current_state:
+    cash_on_hand: null
+    monthly_burn: null
+    runway_months: null
+
+  # MRR 400万円までの資金需要
+  funding_to_target:
+    months_to_target: null
+    cumulative_burn: null
+    cac_investment_needed: null
+    total_funding_needed: null
+    buffer_6_months: null
+    recommended_raise: null
+
+  # 調達シナリオ
+  raise_scenarios:
+    - amount: 10000000        # 1000万円
+      runway_extension: null
+      mrr_at_runway_end: null
+      enough_for_target: null
+
+    - amount: 30000000        # 3000万円
+      runway_extension: null
+      mrr_at_runway_end: null
+      enough_for_target: null
+
+    - amount: 50000000        # 5000万円
+      runway_extension: null
+      mrr_at_runway_end: null
+      enough_for_target: null
+
+  # 調達なしシナリオ（ブートストラップ）
+  bootstrap_scenario:
+    possible: null            # true/false
+    constraints: ""
+    time_to_target: null
+
+# =============================================================================
+# SECTION 7: ユニットエコノミクス改善インパクト
+# =============================================================================
+improvement_impact:
+  # 各改善の効果を定量化
+
+  # ARPU +10%の効果
+  arpu_10_percent_increase:
+    current_arpu: null
+    new_arpu: null
+    impact_on_ltv: null
+    impact_on_required_customers: null
+    difficulty: ""            # easy / medium / hard
+
+  # CAC -10%の効果
+  cac_10_percent_decrease:
+    current_cac: null
+    new_cac: null
+    impact_on_ltv_cac: null
+    impact_on_payback: null
+    difficulty: ""
+
+  # チャーン -1%ポイントの効果
+  churn_1_point_decrease:
+    current_churn: null
+    new_churn: null
+    impact_on_lifespan: null
+    impact_on_ltv: null
+    difficulty: ""
+
+  # 粗利率 +5%の効果
+  margin_5_percent_increase:
+    current_margin: null
+    new_margin: null
+    impact_on_ltv: null
+    difficulty: ""
+
+  # 優先順位（効果÷難易度）
+  priority_ranking:
+    1:
+      lever: ""
+      roi_estimate: ""
+    2:
+      lever: ""
+      roi_estimate: ""
+    3:
+      lever: ""
+      roi_estimate: ""

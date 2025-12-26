@@ -1,0 +1,496 @@
+# =============================================================================
+# Phase 0: ユニットエコノミクス設計（最重要）
+# =============================================================================
+# このファイルが全ての基盤。ここが健全でなければビジネスは成立しない。
+# MRR 400万円達成の前に、まずユニットエコノミクスを設計・検証する。
+# =============================================================================
+
+_meta:
+  phase: 0
+  name: "ユニットエコノミクス設計"
+  importance: "CRITICAL"
+  status: "not_started"
+  outputs:
+    - "全てのワークシートの前提条件"
+    - "pitch_deck.business_model"
+    - "outputs/financial_model.yml"
+
+# =============================================================================
+# なぜユニットエコノミクスが最重要か
+# =============================================================================
+_why_unit_economics_matter:
+  principle: |
+    ユニットエコノミクスが健全でなければ、成長すればするほど赤字が拡大する。
+    「顧客を1人獲得するたびに損をするビジネス」は、どれだけスケールしても破綻する。
+
+    逆に、ユニットエコノミクスが健全であれば：
+    - 成長するほど利益が出る
+    - 投資家から資金調達しやすい
+    - 持続可能なビジネスになる
+
+  golden_rules:
+    - rule: "LTV > 3 × CAC"
+      meaning: "顧客から得られる価値が、獲得コストの3倍以上"
+    - rule: "CAC回収期間 < 12ヶ月"
+      meaning: "1年以内に顧客獲得コストを回収できる"
+    - rule: "粗利率 > 70%"
+      meaning: "SaaSなら70%以上の粗利率が必要"
+    - rule: "月次チャーン < 5%"
+      meaning: "毎月5%以上の解約は危険信号"
+
+# =============================================================================
+# STEP 1: 収益の単位を定義する [REQUIRED]
+# =============================================================================
+revenue_unit:
+  # あなたのビジネスの「1単位」は何か？
+  unit_type: ""               # per_user / per_seat / per_company / per_transaction / per_usage
+
+  # 課金モデル
+  pricing_model: ""           # subscription / usage_based / transaction_fee / hybrid
+
+  # 課金頻度
+  billing_frequency: ""       # monthly / yearly / one_time / per_transaction
+
+  # 具体例で考える
+  example:
+    description: ""           # 例: "1社あたり月額課金"
+    unit: ""                  # 例: "1社"
+
+# =============================================================================
+# STEP 2: ARPU（顧客単価）を設計する [REQUIRED]
+# =============================================================================
+arpu_design:
+  # ARPU = Average Revenue Per User/Unit
+  # これが全ての計算の起点
+
+  # 価格設定の3つのアプローチ
+  pricing_approach:
+    chosen: ""                # cost_plus / value_based / competitor_based
+
+    # コストプラス方式
+    cost_plus:
+      cost_to_serve: null     # 1顧客にサービス提供するコスト（円/月）
+      target_margin: null     # 目標利益率（%）
+      calculated_price: null  # = cost / (1 - margin)
+
+    # バリューベース方式（推奨）
+    value_based:
+      customer_pain_value: null    # 顧客の問題による損失（円/月）
+      value_delivered: null        # 提供する価値（円/月）
+      value_capture_rate: null     # 価値の何%を価格にするか（通常10-30%）
+      calculated_price: null       # = value × capture_rate
+
+    # 競合ベース方式
+    competitor_based:
+      competitor_1_price: null
+      competitor_2_price: null
+      competitor_3_price: null
+      our_positioning: ""     # premium / same / discount
+      price_multiplier: null  # 例: 0.8（20%安く）, 1.2（20%高く）
+      calculated_price: null
+
+  # 最終的なプラン設計
+  plans:
+    - name: "Starter"
+      monthly_price: null     # ← 記入必須
+      yearly_price: null      # 通常は monthly × 10
+      target_segment: ""
+      expected_mix: null      # 全顧客の何%がこのプラン？
+
+    - name: "Pro"
+      monthly_price: null
+      yearly_price: null
+      target_segment: ""
+      expected_mix: null
+
+    - name: "Enterprise"
+      monthly_price: null
+      yearly_price: null
+      target_segment: ""
+      expected_mix: null
+
+  # 加重平均ARPU（自動計算用）
+  calculated_arpu:
+    formula: "Σ(プラン価格 × プランmix)"
+    value: null               # ← 上記から計算して記入
+
+  # ARPUの検証
+  arpu_validation:
+    - question: "この価格で顧客は買うか？"
+      evidence: ""            # インタビュー結果など
+    - question: "競合と比較して妥当か？"
+      evidence: ""
+    - question: "提供価値に対して安すぎ/高すぎないか？"
+      evidence: ""
+
+# =============================================================================
+# STEP 3: CAC（顧客獲得コスト）を設計する [REQUIRED]
+# =============================================================================
+cac_design:
+  # CAC = Customer Acquisition Cost
+  # 1顧客を獲得するのにかかる全コスト
+
+  # CACの構成要素
+  components:
+    marketing:
+      paid_ads: null          # 広告費/月
+      content_creation: null  # コンテンツ制作費/月
+      tools: null             # マーケツール費/月
+      events: null            # イベント費/月
+      subtotal: null
+
+    sales:
+      salaries: null          # 営業人件費/月
+      tools: null             # CRM等ツール費/月
+      travel: null            # 出張費/月
+      subtotal: null
+
+    total_monthly_spend: null # = marketing + sales
+
+  # 月間獲得顧客数（見込み）
+  monthly_new_customers:
+    pessimistic: null
+    realistic: null
+    optimistic: null
+
+  # CAC計算
+  calculated_cac:
+    formula: "総獲得コスト ÷ 新規顧客数"
+    pessimistic: null         # = total_spend / pessimistic_customers
+    realistic: null           # = total_spend / realistic_customers
+    optimistic: null          # = total_spend / optimistic_customers
+
+  # チャネル別CAC（より詳細な分析）
+  cac_by_channel:
+    - channel: "オーガニック（SEO/SNS）"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      scalability: ""         # high / medium / low
+
+    - channel: "有料広告"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      scalability: ""
+
+    - channel: "紹介/口コミ"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      scalability: ""
+
+    - channel: "営業（アウトバウンド）"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      scalability: ""
+
+  # Blended CAC（加重平均）
+  blended_cac: null
+
+  # CAC目標
+  target_cac:
+    value: null
+    rationale: ""             # なぜこの目標値か
+
+# =============================================================================
+# STEP 4: チャーン（解約率）を設計する [REQUIRED]
+# =============================================================================
+churn_design:
+  # Churn = 解約率
+  # ユニットエコノミクスで最も見落とされがちだが、LTVに直結する最重要指標
+
+  # チャーンの種類
+  churn_types:
+    logo_churn:               # 顧客数ベースの解約率
+      monthly_rate: null      # %（目標: SMB 3-5%, Enterprise 0.5-1%）
+      meaning: "毎月何%の顧客が解約するか"
+
+    revenue_churn:            # 収益ベースの解約率
+      gross_monthly_rate: null    # %（解約による減収）
+      expansion_rate: null        # %（アップセル/クロスセルによる増収）
+      net_monthly_rate: null      # = gross - expansion（マイナスなら成長）
+      meaning: "毎月何%の収益が失われるか"
+
+  # Net Revenue Retention (NRR)
+  nrr:
+    formula: "(期首MRR + 拡大 - 縮小 - 解約) ÷ 期首MRR × 100"
+    target: null              # 目標: 100%以上、優良企業は120%+
+    current: null
+
+  # チャーンの要因分析
+  churn_reasons:
+    - reason: ""
+      estimated_percent: null # 全解約のうち何%がこの理由か
+      preventable: ""         # yes / no / partially
+      prevention_strategy: ""
+
+  # チャーン削減戦略
+  churn_reduction:
+    onboarding:
+      current_completion_rate: null
+      target_completion_rate: null
+      impact_on_churn: ""
+
+    customer_success:
+      health_score_implemented: false
+      proactive_outreach: false
+      qbr_cadence: ""         # quarterly business review
+
+    product:
+      sticky_features:
+        - ""
+      switching_cost: ""      # high / medium / low
+
+  # 平均顧客寿命
+  avg_customer_lifespan:
+    formula: "1 ÷ 月次チャーン率"
+    months: null              # 例: チャーン5%なら20ヶ月
+
+# =============================================================================
+# STEP 5: LTV（顧客生涯価値）を計算する [REQUIRED]
+# =============================================================================
+ltv_calculation:
+  # LTV = Customer Lifetime Value
+  # 1顧客から生涯で得られる粗利益
+
+  # 基本計算式
+  simple_ltv:
+    formula: "ARPU × 粗利率 × 顧客寿命（月）"
+    arpu: null                # STEP 2から
+    gross_margin: null        # %（SaaSなら70-90%）
+    lifespan_months: null     # STEP 4から
+    calculated_ltv: null
+
+  # より正確な計算（割引率考慮）
+  dcf_ltv:
+    formula: "ARPU × 粗利率 ÷ (チャーン率 + 割引率)"
+    discount_rate: 0.10       # 年率10%が一般的
+    monthly_discount_rate: null  # = (1 + 年率)^(1/12) - 1
+    calculated_ltv: null
+
+  # セグメント別LTV
+  ltv_by_segment:
+    - segment: "Starter"
+      arpu: null
+      churn_rate: null
+      lifespan: null
+      ltv: null
+
+    - segment: "Pro"
+      arpu: null
+      churn_rate: null
+      lifespan: null
+      ltv: null
+
+    - segment: "Enterprise"
+      arpu: null
+      churn_rate: null
+      lifespan: null
+      ltv: null
+
+  # Blended LTV（加重平均）
+  blended_ltv: null
+
+# =============================================================================
+# STEP 6: ユニットエコノミクス健全性チェック [REQUIRED]
+# =============================================================================
+health_check:
+  # LTV/CAC比率
+  ltv_cac_ratio:
+    formula: "LTV ÷ CAC"
+    value: null
+    benchmark:
+      danger: "< 1（獲得するほど赤字）"
+      warning: "1-3（持続困難）"
+      healthy: "3-5（健全）"
+      excellent: "> 5（非常に効率的）"
+    status: ""                # danger / warning / healthy / excellent
+    action_if_unhealthy: ""
+
+  # CAC回収期間
+  cac_payback:
+    formula: "CAC ÷ (ARPU × 粗利率)"
+    months: null
+    benchmark:
+      danger: "> 24ヶ月"
+      warning: "12-24ヶ月"
+      healthy: "6-12ヶ月"
+      excellent: "< 6ヶ月"
+    status: ""
+    action_if_unhealthy: ""
+
+  # 粗利率
+  gross_margin:
+    value: null               # %
+    benchmark:
+      danger: "< 50%"
+      warning: "50-70%"
+      healthy: "70-80%"
+      excellent: "> 80%"
+    status: ""
+
+  # 月次チャーン率
+  monthly_churn:
+    value: null               # %
+    benchmark:
+      danger: "> 10%"
+      warning: "5-10%"
+      healthy: "2-5%"
+      excellent: "< 2%"
+    status: ""
+
+  # Net Revenue Retention
+  nrr_check:
+    value: null               # %
+    benchmark:
+      danger: "< 80%"
+      warning: "80-100%"
+      healthy: "100-120%"
+      excellent: "> 120%"
+    status: ""
+
+  # 総合判定
+  overall_health:
+    score: null               # 5つの指標の健全度から計算
+    status: ""                # critical / needs_work / healthy / excellent
+    top_priority_fix: ""      # 最優先で改善すべき指標
+
+# =============================================================================
+# STEP 7: MRR 400万円への逆算 [REQUIRED]
+# =============================================================================
+mrr_4m_reverse_calculation:
+  target_mrr: 4000000
+
+  # ARPUからの逆算
+  from_arpu:
+    arpu: null                # STEP 2から
+    required_customers: null  # = 4,000,000 ÷ ARPU
+
+  # 月次成長率からの逆算
+  from_growth:
+    starting_mrr: null        # 現在のMRR
+    starting_customers: null  # 現在の顧客数
+
+    scenarios:
+      - monthly_growth_rate: 10
+        months_to_4m: null
+        required_monthly_new_customers: null
+        monthly_cac_spend: null    # = new_customers × CAC
+        feasibility: ""
+
+      - monthly_growth_rate: 15
+        months_to_4m: null
+        required_monthly_new_customers: null
+        monthly_cac_spend: null
+        feasibility: ""
+
+      - monthly_growth_rate: 20
+        months_to_4m: null
+        required_monthly_new_customers: null
+        monthly_cac_spend: null
+        feasibility: ""
+
+  # 必要な資金
+  funding_requirement:
+    chosen_scenario_growth_rate: null
+    months_to_4m: null
+    total_cac_spend: null
+    operating_costs: null
+    total_funding_needed: null
+    buffer: null              # 6ヶ月分の余裕
+    recommended_raise: null
+
+# =============================================================================
+# STEP 8: ユニットエコノミクス改善レバー [REQUIRED]
+# =============================================================================
+improvement_levers:
+  # LTV/CACを改善する4つのレバー
+
+  # レバー1: ARPUを上げる
+  increase_arpu:
+    current: null
+    target: null
+    tactics:
+      - tactic: "価格改定"
+        potential_impact: ""
+        risk: ""
+      - tactic: "アップセル強化"
+        potential_impact: ""
+        risk: ""
+      - tactic: "上位プラン開発"
+        potential_impact: ""
+        risk: ""
+
+  # レバー2: CACを下げる
+  decrease_cac:
+    current: null
+    target: null
+    tactics:
+      - tactic: "オーガニック強化"
+        potential_impact: ""
+        risk: ""
+      - tactic: "紹介プログラム"
+        potential_impact: ""
+        risk: ""
+      - tactic: "セールス効率化"
+        potential_impact: ""
+        risk: ""
+
+  # レバー3: チャーンを下げる
+  decrease_churn:
+    current: null
+    target: null
+    tactics:
+      - tactic: "オンボーディング改善"
+        potential_impact: ""
+        risk: ""
+      - tactic: "カスタマーサクセス強化"
+        potential_impact: ""
+        risk: ""
+      - tactic: "プロダクト改善"
+        potential_impact: ""
+        risk: ""
+
+  # レバー4: 粗利率を上げる
+  increase_gross_margin:
+    current: null
+    target: null
+    tactics:
+      - tactic: "インフラコスト削減"
+        potential_impact: ""
+        risk: ""
+      - tactic: "自動化"
+        potential_impact: ""
+        risk: ""
+
+  # 優先順位
+  priority_order:
+    - lever: ""
+      reason: ""
+    - lever: ""
+      reason: ""
+
+# =============================================================================
+# 完了チェックリスト
+# =============================================================================
+_completion_checklist:
+  - item: "ARPUが計算されている"
+    completed: false
+  - item: "CACが計算されている"
+    completed: false
+  - item: "チャーン率が設定されている"
+    completed: false
+  - item: "LTVが計算されている"
+    completed: false
+  - item: "LTV/CAC比率が3以上"
+    completed: false
+  - item: "CAC回収期間が12ヶ月以内"
+    completed: false
+  - item: "粗利率が70%以上"
+    completed: false
+  - item: "MRR400万円達成に必要な顧客数が明確"
+    completed: false
+  - item: "改善レバーの優先順位が決まっている"
+    completed: false

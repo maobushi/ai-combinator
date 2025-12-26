@@ -1,0 +1,383 @@
+# =============================================================================
+# Phase 4: ビジネスモデル・収益計画
+# =============================================================================
+# 完了条件: MRR 400万円達成のための具体的な計画が完成
+# 所要時間目安: 継続的に更新
+# 目標: 理論的にMRR 400万円達成が可能な計画を策定
+# =============================================================================
+
+_meta:
+  phase: 4
+  name: "ビジネスモデル・収益計画"
+  status: "not_started"
+  started_at: null
+  completed_at: null
+  outputs:
+    - "pitch_deck.business_model"
+    - "pitch_deck.financials"
+    - "outputs/financial_model.yml"
+
+# =============================================================================
+# 4.1 収益モデル [REQUIRED]
+# =============================================================================
+revenue_model:
+  # ビジネスモデルタイプ
+  type: ""                    # saas / marketplace / transactional / usage_based / hybrid
+
+  # 課金モデル
+  pricing_model:
+    type: ""                  # subscription / per_seat / per_usage / tiered / freemium
+
+    # プランとその価格設定 - 実際に記入してください
+    plans:
+      - name: "Free"
+        price_monthly: 0
+        price_yearly: 0
+        features:
+          - ""
+        target_segment: ""
+        conversion_to_paid_rate: null  # %
+
+      - name: "Starter"
+        price_monthly: null   # ← ここに月額料金を記入
+        price_yearly: null    # ← 年額（月額×10〜12が一般的）
+        features:
+          - ""
+        target_segment: ""
+        expected_mix: null    # 全有料顧客のうち何%がこのプラン？
+
+      - name: "Pro"
+        price_monthly: null
+        price_yearly: null
+        features:
+          - ""
+        target_segment: ""
+        expected_mix: null
+
+      - name: "Enterprise"
+        price_monthly: null   # カスタム価格の場合は目安
+        price_yearly: null
+        features:
+          - ""
+        target_segment: ""
+        expected_mix: null
+
+  # 平均客単価（ARPU）の計算
+  arpu_calculation:
+    starter_mix: null         # % (例: 60)
+    starter_price: null       # 円
+    pro_mix: null             # % (例: 30)
+    pro_price: null           # 円
+    enterprise_mix: null      # % (例: 10)
+    enterprise_price: null    # 円
+    calculated_arpu: null     # 自動計算: 加重平均
+
+# =============================================================================
+# 4.2 MRR 400万円達成計画 [REQUIRED]
+# =============================================================================
+mrr_4m_plan:
+  target_mrr: 4000000         # 円
+
+  # シナリオ別の必要顧客数
+  scenarios:
+    # シナリオ1: 低単価×多数顧客
+    low_price_high_volume:
+      arpu: 10000             # 月額1万円
+      required_customers: 400
+      feasibility: ""         # 実現可能性の評価
+
+    # シナリオ2: 中単価×中数顧客
+    mid_price_mid_volume:
+      arpu: 40000             # 月額4万円
+      required_customers: 100
+      feasibility: ""
+
+    # シナリオ3: 高単価×少数顧客
+    high_price_low_volume:
+      arpu: 100000            # 月額10万円
+      required_customers: 40
+      feasibility: ""
+
+  # 選択したシナリオ
+  chosen_scenario: ""         # low_price / mid_price / high_price
+  target_arpu: null
+  target_customers: null
+
+  # 月次成長計画（MRR 400万円までのロードマップ）
+  monthly_roadmap:
+    - month: 1
+      target_mrr: null
+      target_customers: null
+      new_customers: null
+      churned_customers: null
+      activities:
+        - ""
+
+    - month: 2
+      target_mrr: null
+      target_customers: null
+      new_customers: null
+      churned_customers: null
+      activities:
+        - ""
+
+    - month: 3
+      target_mrr: null
+      target_customers: null
+      new_customers: null
+      churned_customers: null
+      activities:
+        - ""
+
+    - month: 6
+      target_mrr: null
+      target_customers: null
+      new_customers: null
+      churned_customers: null
+      activities:
+        - ""
+
+    - month: 12
+      target_mrr: 4000000     # 目標達成
+      target_customers: null
+      new_customers: null
+      churned_customers: null
+      activities:
+        - ""
+
+# =============================================================================
+# 4.3 ユニットエコノミクス [REQUIRED]
+# =============================================================================
+unit_economics:
+  # 顧客獲得コスト (CAC)
+  cac:
+    sales_cost_per_customer: null     # 営業コスト/顧客
+    marketing_cost_per_customer: null # マーケコスト/顧客
+    total_cac: null                   # 合計CAC
+
+    # CAC内訳
+    breakdown:
+      paid_ads: null
+      content_marketing: null
+      sales_salary: null
+      tools: null
+      other: null
+
+  # 顧客生涯価値 (LTV)
+  ltv:
+    arpu: null                        # 月額平均単価
+    gross_margin_percent: null        # 粗利率 (%)
+    monthly_churn_rate: null          # 月次解約率 (%)
+    avg_customer_lifespan_months: null # 平均顧客寿命（月）= 1/解約率
+    calculated_ltv: null              # LTV = ARPU × 粗利率 × 顧客寿命
+
+  # LTV/CAC比率
+  ltv_cac_ratio: null                 # 目標: 3以上
+  cac_payback_months: null            # CAC回収期間（月）
+
+  # 健全性チェック
+  health_check:
+    ltv_cac_above_3: false            # LTV/CAC > 3
+    payback_under_12_months: false    # 回収期間 < 12ヶ月
+    gross_margin_above_70: false      # 粗利率 > 70%
+
+# =============================================================================
+# 4.4 顧客獲得戦略 [REQUIRED]
+# =============================================================================
+acquisition_strategy:
+  # 獲得チャネル
+  channels:
+    - name: ""
+      type: ""                # organic / paid / partnership / sales
+      cac: null
+      expected_monthly_leads: null
+      conversion_rate: null   # %
+      expected_monthly_customers: null
+      strategy: ""
+      tactics:
+        - ""
+
+  # チャネルミックス計画
+  channel_mix:
+    month_1_6:                # 初期
+      primary_channel: ""
+      secondary_channel: ""
+      organic_ratio: null     # %
+      paid_ratio: null        # %
+
+    month_7_12:               # 成長期
+      primary_channel: ""
+      secondary_channel: ""
+      organic_ratio: null
+      paid_ratio: null
+
+  # セールスプロセス（B2Bの場合）
+  sales_process:
+    type: ""                  # self_serve / inside_sales / field_sales / hybrid
+    avg_sales_cycle_days: null
+    stages:
+      - name: "Lead"
+        conversion_rate: null
+      - name: "MQL"
+        conversion_rate: null
+      - name: "SQL"
+        conversion_rate: null
+      - name: "Opportunity"
+        conversion_rate: null
+      - name: "Customer"
+        conversion_rate: null
+
+# =============================================================================
+# 4.5 コスト構造 [REQUIRED]
+# =============================================================================
+cost_structure:
+  # 固定費（月額）
+  fixed_costs:
+    salaries:
+      founders: null
+      employees: null
+      total: null
+
+    infrastructure:
+      hosting: null
+      tools_subscriptions: null
+      total: null
+
+    office:
+      rent: null
+      utilities: null
+      total: null
+
+    other:
+      legal: null
+      accounting: null
+      insurance: null
+      total: null
+
+    total_fixed_costs: null
+
+  # 変動費（収益に対する%）
+  variable_costs:
+    payment_processing: null  # % (例: 3%)
+    customer_support: null    # % (例: 5%)
+    server_scaling: null      # % (例: 2%)
+    other: null
+    total_variable_percent: null
+
+  # 粗利率の計算
+  gross_margin:
+    revenue: null
+    cogs: null                # 原価
+    gross_profit: null
+    gross_margin_percent: null
+
+  # 損益分岐点
+  break_even:
+    monthly_fixed_costs: null
+    contribution_margin_per_customer: null  # ARPU × (1 - 変動費率)
+    break_even_customers: null              # 固定費 ÷ 貢献利益
+    break_even_mrr: null
+
+# =============================================================================
+# 4.6 財務予測（12ヶ月）[REQUIRED]
+# =============================================================================
+financial_projections:
+  assumptions:
+    monthly_growth_rate: null         # %
+    churn_rate: null                  # %
+    arpu: null
+    cac: null
+    gross_margin: null                # %
+
+  # 月次予測
+  monthly:
+    - month: 1
+      mrr: null
+      customers: null
+      new_customers: null
+      churned_customers: null
+      revenue: null
+      costs: null
+      profit_loss: null
+      cash_balance: null
+
+    - month: 3
+      mrr: null
+      customers: null
+      new_customers: null
+      churned_customers: null
+      revenue: null
+      costs: null
+      profit_loss: null
+      cash_balance: null
+
+    - month: 6
+      mrr: null
+      customers: null
+      new_customers: null
+      churned_customers: null
+      revenue: null
+      costs: null
+      profit_loss: null
+      cash_balance: null
+
+    - month: 12
+      mrr: 4000000            # 目標
+      customers: null
+      new_customers: null
+      churned_customers: null
+      revenue: null
+      costs: null
+      profit_loss: null
+      cash_balance: null
+
+  # 資金需要
+  funding_requirement:
+    runway_months: null
+    cash_needed_to_break_even: null
+    recommended_raise: null
+    buffer_months: 6
+
+# =============================================================================
+# 4.7 リスクと対策 [REQUIRED]
+# =============================================================================
+risks:
+  - risk: ""
+    probability: ""           # high / medium / low
+    impact: ""                # high / medium / low
+    mitigation: ""
+
+  - risk: ""
+    probability: ""
+    impact: ""
+    mitigation: ""
+
+  - risk: ""
+    probability: ""
+    impact: ""
+    mitigation: ""
+
+# =============================================================================
+# Phase 4 完了チェックリスト
+# =============================================================================
+_completion_checklist:
+  - item: "価格プランが3つ以上設定されている"
+    completed: false
+  - item: "ARPUが計算されている"
+    completed: false
+  - item: "MRR400万円達成に必要な顧客数が明確"
+    completed: false
+  - item: "月次成長ロードマップがある"
+    completed: false
+  - item: "CAC/LTVが計算されている"
+    completed: false
+  - item: "LTV/CAC比率が3以上"
+    completed: false
+  - item: "獲得チャネルが3つ以上定義されている"
+    completed: false
+  - item: "12ヶ月の財務予測がある"
+    completed: false
+  - item: "損益分岐点が計算されている"
+    completed: false
+  - item: "リスクと対策が3つ以上ある"
+    completed: false

@@ -1,0 +1,179 @@
+# =============================================================================
+# Phase 1: アイデア・問題定義
+# =============================================================================
+# 完了条件: 全てのREQUIRED項目が記入されていること
+# 所要時間目安: 1-2週間
+# 次のフェーズへ: problem.validation_status が "validated" になること
+# =============================================================================
+
+_meta:
+  phase: 1
+  name: "アイデア・問題定義"
+  status: "not_started"       # not_started / in_progress / completed
+  started_at: null
+  completed_at: null
+  outputs:
+    - "pitch_deck.problem"
+    - "pitch_deck.solution"
+
+# =============================================================================
+# 1.1 問題定義 [REQUIRED]
+# =============================================================================
+problem:
+  # 一文で問題を説明（投資家ピッチの冒頭で使用）
+  # 例: "中小企業の経理担当者は、請求書処理に月40時間を費やしている"
+  statement: ""
+
+  # 誰がこの問題を抱えているか
+  who:
+    description: ""           # 例: "従業員10-100人規模の中小企業の経理担当者"
+    estimated_population: null # 日本国内の推定人数
+
+  # 何が問題なのか
+  what:
+    current_situation: ""     # 現状どうなっているか
+    pain_points:              # 具体的なペインポイント（3-5個）
+      - ""
+      - ""
+      - ""
+
+  # なぜ問題なのか
+  why:
+    business_impact: ""       # ビジネスへの影響
+    emotional_impact: ""      # 感情的な影響
+    frequency: ""             # daily / weekly / monthly / yearly
+
+  # どれくらい深刻か（定量化）
+  severity:
+    time_lost_per_month: ""   # 月間で失われる時間
+    money_lost_per_month: ""  # 月間で失われる金額
+    other_metrics: ""
+
+  # 問題の検証状況
+  validation_status: "hypothesis"  # hypothesis / interviewing / validated / invalidated
+
+  # 顧客インタビュー記録
+  interviews:
+    target_count: 20          # 目標インタビュー数
+    completed_count: 0
+    insights:                 # インタビューからの気づき
+      - interviewee: ""
+        date: ""
+        key_quotes: []
+        pain_level: null      # 1-10
+        would_pay: null       # yes / no / maybe
+    summary: ""               # インタビュー全体の要約
+
+# =============================================================================
+# 1.2 既存の解決策 [REQUIRED]
+# =============================================================================
+existing_solutions:
+  # ターゲット顧客が現在どう解決しているか
+  current_alternatives:
+    - name: ""                # 例: "Excel手作業"
+      description: ""
+      pros: []
+      cons: []
+      cost: ""                # 金銭的/時間的コスト
+      adoption_rate: ""       # どれくらいの人が使っているか
+
+    - name: ""                # 例: "既存SaaS A"
+      description: ""
+      pros: []
+      cons: []
+      cost: ""
+      adoption_rate: ""
+
+  # なぜ既存の解決策では不十分か
+  gap_analysis: ""
+
+# =============================================================================
+# 1.3 ソリューション仮説 [REQUIRED]
+# =============================================================================
+solution:
+  # 一文でソリューションを説明
+  # 例: "AIが請求書を自動で読み取り、仕訳まで完了するクラウドサービス"
+  statement: ""
+
+  # どのように問題を解決するか
+  how_it_works:
+    step_1: ""
+    step_2: ""
+    step_3: ""
+
+  # 主要な価値提案（3つまで）
+  value_propositions:
+    - benefit: ""             # 顧客が得られるメリット
+      metric: ""              # 定量的な効果（例: "処理時間90%削減"）
+    - benefit: ""
+      metric: ""
+    - benefit: ""
+      metric: ""
+
+  # なぜ今このソリューションが可能/必要なのか
+  why_now:
+    technology_enabler: ""    # 技術的に可能になった理由
+    market_timing: ""         # 市場タイミングが良い理由
+    regulatory_change: ""     # 規制変更があれば
+
+# =============================================================================
+# 1.4 創業者の適性 [REQUIRED]
+# =============================================================================
+founder_fit:
+  # なぜあなた（たち）がこの問題を解決すべきか
+  why_us:
+    domain_expertise: ""      # 業界経験
+    technical_expertise: ""   # 技術力
+    unique_insight: ""        # 独自の洞察
+    personal_connection: ""   # 個人的なつながり/動機
+
+  # 不公平な優位性（コピーできないもの）
+  unfair_advantages:
+    - ""
+    - ""
+
+# =============================================================================
+# 1.5 初期仮説の整理 [REQUIRED]
+# =============================================================================
+hypotheses:
+  # 検証が必要な仮説をリストアップ
+  # Phase 2 で検証していく
+
+  problem_hypotheses:
+    - hypothesis: ""          # 例: "経理担当者は請求書処理に月40時間かけている"
+      validation_method: ""   # どうやって検証するか
+      status: "unvalidated"   # unvalidated / validated / invalidated
+      evidence: ""
+
+  solution_hypotheses:
+    - hypothesis: ""          # 例: "AIによる自動化で90%の時間削減が可能"
+      validation_method: ""
+      status: "unvalidated"
+      evidence: ""
+
+  business_hypotheses:
+    - hypothesis: ""          # 例: "月額3万円なら導入する企業がある"
+      validation_method: ""
+      status: "unvalidated"
+      evidence: ""
+
+# =============================================================================
+# Phase 1 完了チェックリスト
+# =============================================================================
+_completion_checklist:
+  - item: "problem.statement が記入されている"
+    completed: false
+  - item: "problem.who.description が記入されている"
+    completed: false
+  - item: "problem.pain_points が3つ以上記入されている"
+    completed: false
+  - item: "顧客インタビューを10人以上実施した"
+    completed: false
+  - item: "solution.statement が記入されている"
+    completed: false
+  - item: "solution.value_propositions が3つ記入されている"
+    completed: false
+  - item: "founder_fit.why_us が記入されている"
+    completed: false
+  - item: "hypotheses が3つ以上設定されている"
+    completed: false

@@ -1,0 +1,315 @@
+# =============================================================================
+# Phase 5: 成長戦略・運営
+# =============================================================================
+# 完了条件: PMF達成、持続的な成長エンジンの確立
+# 所要時間目安: 6-12ヶ月
+# 目標: MRR 400万円達成と持続可能な成長
+# =============================================================================
+
+_meta:
+  phase: 5
+  name: "成長戦略・運営"
+  status: "not_started"
+  started_at: null
+  completed_at: null
+  outputs:
+    - "pitch_deck.traction"
+    - "pitch_deck.growth_strategy"
+
+# =============================================================================
+# 5.1 Product-Market Fit 検証 [REQUIRED]
+# =============================================================================
+pmf_validation:
+  # Sean Ellis Test
+  sean_ellis:
+    survey_date: ""
+    responses_count: null
+    very_disappointed_percent: null   # 目標: 40%以上
+    status: ""                        # not_tested / below_40 / above_40
+
+  # リテンション分析
+  retention:
+    week_1: null              # %
+    week_4: null
+    month_3: null
+    month_6: null
+    cohort_chart_url: ""
+
+  # NPS
+  nps:
+    score: null               # -100 to +100
+    promoters_percent: null
+    passives_percent: null
+    detractors_percent: null
+
+  # PMF達成判定
+  pmf_status: "searching"     # searching / emerging / achieved
+  pmf_evidence:
+    - ""
+
+# =============================================================================
+# 5.2 成長エンジン [REQUIRED]
+# =============================================================================
+growth_engine:
+  # 選択した成長エンジン
+  primary_engine: ""          # viral / sticky / paid
+
+  # Viral Engine（バイラル型）
+  viral:
+    enabled: false
+    viral_coefficient_k: null # K > 1 で自然成長
+    cycle_time_days: null
+    tactics:
+      referral_program:
+        enabled: false
+        incentive_giver: ""
+        incentive_receiver: ""
+        conversion_rate: null
+      social_sharing:
+        enabled: false
+        features:
+          - ""
+      word_of_mouth:
+        nps_score: null
+        organic_referral_rate: null
+
+  # Sticky Engine（定着型）
+  sticky:
+    enabled: false
+    monthly_churn_rate: null
+    monthly_growth_rate: null
+    net_growth_rate: null     # 成長率 - 解約率
+    tactics:
+      onboarding_optimization:
+        current_completion_rate: null
+        target_completion_rate: null
+        improvements:
+          - ""
+      engagement_features:
+        - feature: ""
+          usage_rate: null
+      customer_success:
+        health_score_system: false
+        proactive_outreach: false
+
+  # Paid Engine（有料獲得型）
+  paid:
+    enabled: false
+    ltv_cac_ratio: null       # > 3 が必要
+    cac_payback_months: null  # < 12ヶ月が理想
+    channels:
+      - name: ""
+        monthly_spend: null
+        cac: null
+        customers_acquired: null
+        roas: null            # Return on Ad Spend
+
+# =============================================================================
+# 5.3 週次・月次KPI [REQUIRED]
+# =============================================================================
+kpi_tracking:
+  # 週次で追跡する指標
+  weekly:
+    - metric: "新規サインアップ数"
+      target: null
+      current: null
+      trend: ""               # up / down / flat
+
+    - metric: "アクティブユーザー数"
+      target: null
+      current: null
+      trend: ""
+
+    - metric: "新規MRR"
+      target: null
+      current: null
+      trend: ""
+
+    - metric: "解約MRR"
+      target: null
+      current: null
+      trend: ""
+
+  # 月次で追跡する指標
+  monthly:
+    - metric: "MRR"
+      target: null
+      current: null
+      mom_growth: null        # 前月比成長率
+
+    - metric: "顧客数"
+      target: null
+      current: null
+      mom_growth: null
+
+    - metric: "NRR (Net Revenue Retention)"
+      target: null            # 100%以上が目標
+      current: null
+
+    - metric: "CAC"
+      target: null
+      current: null
+
+    - metric: "LTV"
+      target: null
+      current: null
+
+  # KPIダッシュボードURL
+  dashboard_url: ""
+
+# =============================================================================
+# 5.4 実行計画（月次OKR）[REQUIRED]
+# =============================================================================
+monthly_okrs:
+  - month: ""                 # 例: "2025-01"
+    objectives:
+      - objective: ""
+        key_results:
+          - kr: ""
+            target: null
+            current: null
+            status: ""        # on_track / at_risk / off_track
+          - kr: ""
+            target: null
+            current: null
+            status: ""
+
+  - month: ""
+    objectives:
+      - objective: ""
+        key_results:
+          - kr: ""
+            target: null
+            current: null
+            status: ""
+
+# =============================================================================
+# 5.5 チーム・組織 [REQUIRED]
+# =============================================================================
+team:
+  # 現在のチーム
+  current:
+    - name: ""
+      role: ""
+      responsibilities:
+        - ""
+      start_date: ""
+
+  # 採用計画
+  hiring_plan:
+    - role: ""
+      priority: ""            # critical / high / medium / low
+      timing: ""              # 例: "MRR 100万円達成後"
+      job_description: ""
+      budget_monthly: null
+
+  # 組織構造（MRR400万円時点）
+  org_at_4m_mrr:
+    total_headcount: null
+    roles:
+      - ""
+
+# =============================================================================
+# 5.6 オペレーション [REQUIRED]
+# =============================================================================
+operations:
+  # カスタマーサポート
+  customer_support:
+    channels:
+      - ""                    # email / chat / phone
+    response_time_target: ""
+    csat_target: null         # %
+    tools:
+      - ""
+
+  # 開発プロセス
+  development:
+    methodology: ""           # scrum / kanban / etc
+    sprint_length: ""
+    release_frequency: ""
+    tools:
+      - ""
+
+  # 重要な定期ミーティング
+  recurring_meetings:
+    - name: ""
+      frequency: ""           # daily / weekly / monthly
+      participants:
+        - ""
+      purpose: ""
+
+# =============================================================================
+# 5.7 MRR マイルストーン追跡 [REQUIRED]
+# =============================================================================
+mrr_milestones:
+  - mrr: 100000               # 10万円
+    date_target: ""
+    date_actual: ""
+    status: ""                # pending / achieved
+    celebration: ""
+
+  - mrr: 500000               # 50万円
+    date_target: ""
+    date_actual: ""
+    status: ""
+    celebration: ""
+
+  - mrr: 1000000              # 100万円
+    date_target: ""
+    date_actual: ""
+    status: ""
+    celebration: ""
+
+  - mrr: 2000000              # 200万円
+    date_target: ""
+    date_actual: ""
+    status: ""
+    celebration: ""
+
+  - mrr: 4000000              # 400万円（目標！）
+    date_target: ""
+    date_actual: ""
+    status: ""
+    celebration: ""
+
+# =============================================================================
+# 5.8 学びとピボット記録 [REQUIRED]
+# =============================================================================
+learnings:
+  # 週次の学び
+  weekly_learnings:
+    - week: ""
+      what_worked:
+        - ""
+      what_didnt:
+        - ""
+      key_insight: ""
+      action_items:
+        - ""
+
+  # ピボット履歴
+  pivots:
+    - date: ""
+      from: ""
+      to: ""
+      reason: ""
+      result: ""
+
+# =============================================================================
+# Phase 5 完了チェックリスト
+# =============================================================================
+_completion_checklist:
+  - item: "Sean Ellisテストで40%以上達成"
+    completed: false
+  - item: "月次リテンション率が80%以上"
+    completed: false
+  - item: "成長エンジンが1つ確立"
+    completed: false
+  - item: "週次KPIを追跡している"
+    completed: false
+  - item: "月次OKRを設定している"
+    completed: false
+  - item: "MRR 100万円達成"
+    completed: false
+  - item: "MRR 400万円達成"
+    completed: false

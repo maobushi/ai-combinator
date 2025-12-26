@@ -1,0 +1,1146 @@
+# =============================================================================
+# スタートアップ起業ガイド - 完全版チェックリスト
+# =============================================================================
+# このファイルは起業の各フェーズで必要なタスク、検討事項、KPIを定義しています
+# 参考: Y Combinator, 各種スタートアップリソース
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  last_updated: "2025-12-26"
+  description: "スタートアップ起業に必要な全フェーズのチェックリストと検討事項"
+
+# =============================================================================
+# フェーズ0: プレ・アイデア段階 (Pre-Ideation)
+# =============================================================================
+phase_0_pre_ideation:
+  name: "プレ・アイデア段階"
+  name_en: "Pre-Ideation"
+  duration: "1-3ヶ月"
+  goal: "起業の土台となる自己分析と市場機会の発見"
+
+  self_analysis:
+    description: "なぜ起業するのかを明確にする"
+    checklist:
+      - item: "起業動機の明確化"
+        questions:
+          - "なぜ今起業したいのか？"
+          - "5年後、10年後にどうなっていたいか？"
+          - "起業以外の選択肢を検討したか？"
+      - item: "自分の強み・弱みの分析"
+        questions:
+          - "どのスキル・経験が強みになるか？"
+          - "補完が必要なスキルは何か？"
+          - "過去に解決した問題で特に得意だったものは？"
+      - item: "リスク許容度の確認"
+        questions:
+          - "どれくらいの期間、収入がなくても耐えられるか？"
+          - "失敗した場合のプランBは？"
+          - "家族のサポートは得られるか？"
+      - item: "コミットメントレベルの確認"
+        questions:
+          - "フルタイムで取り組めるか？"
+          - "必要に応じて生活レベルを下げられるか？"
+          - "2-3年間は結果が出なくても続けられるか？"
+
+  opportunity_discovery:
+    description: "解決すべき問題の発見"
+    methods:
+      - name: "自分の痛みから発見"
+        description: "自分が日常で感じている不満・問題を書き出す"
+      - name: "業界経験から発見"
+        description: "これまでの仕事で見てきた非効率や課題を特定"
+      - name: "トレンド分析"
+        description: "技術・社会・規制の変化から生まれる新しいニーズを予測"
+      - name: "顧客インタビュー"
+        description: "ターゲット層に話を聞いて潜在的な問題を発掘"
+
+  founder_mindset:
+    yc_advice:
+      - "ユーザーが愛するものを作ることに集中する"
+      - "完璧を求めすぎず、60%の準備で始める"
+      - "カンファレンスより顧客と話す時間を優先"
+      - "競合を過度に気にしない"
+      - "健康管理（睡眠、食事、運動）を怠らない"
+
+# =============================================================================
+# フェーズ1: アイデア段階 (Ideation)
+# =============================================================================
+phase_1_ideation:
+  name: "アイデア段階"
+  name_en: "Ideation / Seed"
+  duration: "1-3ヶ月"
+  goal: "解決する問題と初期ソリューションの定義"
+
+  problem_definition:
+    description: "解決すべき問題を明確に定義する"
+    checklist:
+      - item: "問題の特定"
+        tasks:
+          - "誰が（Who）この問題を抱えているか？"
+          - "何が（What）問題なのか？"
+          - "なぜ（Why）それが問題なのか？"
+          - "どれくらい（How much）深刻な問題か？"
+      - item: "問題の検証"
+        tasks:
+          - "最低20人以上の潜在顧客にインタビュー"
+          - "問題の頻度と深刻度を定量化"
+          - "現在どのように問題を解決しているか調査"
+          - "問題解決に払っている費用/時間を把握"
+
+  solution_hypothesis:
+    description: "ソリューションの仮説を立てる"
+    checklist:
+      - item: "Value Proposition（価値提案）の定義"
+        template: "[ターゲット顧客]向けに、[解決する問題]を解決する[製品/サービス]"
+      - item: "差別化要因の特定"
+        questions:
+          - "なぜ既存の解決策では不十分なのか？"
+          - "自社のソリューションが優れている点は？"
+          - "技術的/ビジネス的な参入障壁は？"
+
+  market_analysis:
+    description: "市場規模と機会の分析"
+    checklist:
+      - item: "TAM (Total Addressable Market)"
+        description: "サービス可能な最大市場規模"
+      - item: "SAM (Serviceable Addressable Market)"
+        description: "実際にアプローチ可能な市場規模"
+      - item: "SOM (Serviceable Obtainable Market)"
+        description: "現実的に獲得可能な市場規模"
+      - item: "競合分析"
+        tasks:
+          - "直接競合のリストアップ"
+          - "間接競合のリストアップ"
+          - "各競合の強み・弱みの分析"
+          - "競合の価格戦略の調査"
+
+  lean_canvas:
+    description: "Lean Canvasの作成（1ページビジネスプラン）"
+    sections:
+      - name: "Problem"
+        description: "顧客の上位3つの問題"
+      - name: "Customer Segments"
+        description: "ターゲット顧客と早期採用者"
+      - name: "Unique Value Proposition"
+        description: "差別化された価値提案"
+      - name: "Solution"
+        description: "問題に対する上位3つの解決策"
+      - name: "Channels"
+        description: "顧客へのアプローチ方法"
+      - name: "Revenue Streams"
+        description: "収益モデル"
+      - name: "Cost Structure"
+        description: "主要コスト"
+      - name: "Key Metrics"
+        description: "測定すべき主要指標"
+      - name: "Unfair Advantage"
+        description: "簡単にコピーできない優位性"
+
+# =============================================================================
+# フェーズ2: バリデーション段階 (Validation)
+# =============================================================================
+phase_2_validation:
+  name: "バリデーション段階"
+  name_en: "Validation"
+  duration: "2-4ヶ月"
+  goal: "アイデアの市場検証とMVPの構築"
+
+  customer_discovery:
+    description: "顧客発見プロセス"
+    checklist:
+      - item: "顧客インタビュー"
+        minimum: 50
+        questions:
+          - "この問題をどれくらいの頻度で経験しますか？"
+          - "現在どのように解決していますか？"
+          - "理想的な解決策はどのようなものですか？"
+          - "その解決策にいくら払えますか？"
+      - item: "ペルソナ作成"
+        attributes:
+          - "デモグラフィック（年齢、性別、職業、収入）"
+          - "サイコグラフィック（価値観、ライフスタイル）"
+          - "行動特性（購買行動、メディア消費）"
+          - "ペインポイントと目標"
+      - item: "カスタマージャーニーマップ"
+        stages:
+          - "認知（Awareness）"
+          - "検討（Consideration）"
+          - "購入（Purchase）"
+          - "利用（Usage）"
+          - "推奨（Advocacy）"
+
+  mvp_development:
+    description: "MVP（Minimum Viable Product）の開発"
+    principles:
+      - name: "90/10ルール"
+        description: "10%の労力で90%の価値を実現する方法を考える"
+      - name: "早期ローンチ"
+        description: "完璧を待たずにできるだけ早くローンチする"
+      - name: "学習優先"
+        description: "機能追加より学習を優先する"
+
+    mvp_types:
+      - name: "ランディングページMVP"
+        description: "コンセプトを説明するページで興味を測定"
+        tools: ["Carrd", "Webflow", "Framer"]
+      - name: "コンシェルジュMVP"
+        description: "手動でサービスを提供して需要を検証"
+      - name: "ウィザード・オブ・オズMVP"
+        description: "裏側は手動だが、自動化されているように見せる"
+      - name: "プロトタイプMVP"
+        description: "機能する最小限の製品を構築"
+        tools: ["Figma", "Bubble", "FlutterFlow"]
+
+    checklist:
+      - item: "コア機能の特定"
+        tasks:
+          - "絶対に必要な機能を3つ以下に絞る"
+          - "Nice-to-haveを後回しにする"
+      - item: "MVPの構築"
+        tasks:
+          - "2-4週間で構築できる範囲に限定"
+          - "デザインより機能を優先"
+      - item: "ベータユーザーの獲得"
+        tasks:
+          - "最初の10-50人のユーザーを獲得"
+          - "フィードバックループの構築"
+
+  validation_metrics:
+    description: "検証すべき指標"
+    metrics:
+      - name: "Sean Ellis Test"
+        description: "もしこの製品が使えなくなったら非常に残念と答える割合"
+        target: "40%以上"
+      - name: "リテンション率"
+        description: "1週間後、1ヶ月後も使い続けるユーザーの割合"
+      - name: "NPS (Net Promoter Score)"
+        description: "他者に推奨する可能性（-100〜+100）"
+        target: "+30以上"
+      - name: "支払意思額"
+        description: "顧客が支払ってもよい金額"
+
+# =============================================================================
+# フェーズ3: ローンチ段階 (Launch)
+# =============================================================================
+phase_3_launch:
+  name: "ローンチ段階"
+  name_en: "Launch"
+  duration: "1-2ヶ月"
+  goal: "製品の正式ローンチと初期顧客獲得"
+
+  pre_launch:
+    description: "ローンチ前の準備"
+    checklist:
+      - item: "製品準備"
+        tasks:
+          - "クリティカルバグの修正"
+          - "オンボーディングフローの整備"
+          - "FAQ/ヘルプドキュメントの作成"
+          - "決済システムの設定"
+      - item: "マーケティング準備"
+        tasks:
+          - "ローンチページの作成"
+          - "プレスキットの準備"
+          - "ソーシャルメディアアカウントの設定"
+          - "ローンチ告知メールの準備"
+      - item: "ウェイトリスト構築"
+        tasks:
+          - "ランディングページでメール収集"
+          - "早期アクセス特典の設計"
+
+  launch_channels:
+    description: "ローンチチャネル"
+    channels:
+      - name: "Product Hunt"
+        tips:
+          - "火曜〜木曜のローンチがベスト"
+          - "PST 00:01にローンチ"
+          - "コミュニティに事前告知"
+      - name: "Hacker News"
+        tips:
+          - "Show HNで製品紹介"
+          - "技術的な詳細を共有"
+      - name: "Reddit"
+        tips:
+          - "関連するサブレディットを特定"
+          - "コミュニティルールを遵守"
+      - name: "Twitter/X"
+        tips:
+          - "ビルディング・イン・パブリック"
+          - "インフルエンサーへのアウトリーチ"
+      - name: "業界メディア"
+        tips:
+          - "プレスリリースの配信"
+          - "記者への個別アプローチ"
+
+  post_launch:
+    description: "ローンチ後のアクション"
+    checklist:
+      - item: "フィードバック収集"
+        tasks:
+          - "ユーザーインタビューの実施"
+          - "NPS調査の送信"
+          - "機能リクエストの収集"
+      - item: "バグ対応"
+        tasks:
+          - "緊急バグの即座修正"
+          - "バグレポートシステムの整備"
+      - item: "初期指標の測定"
+        tasks:
+          - "DAU/WAU/MAUの計測"
+          - "コンバージョン率の測定"
+          - "チャーン率の測定"
+
+# =============================================================================
+# フェーズ4: Product-Market Fit段階
+# =============================================================================
+phase_4_pmf:
+  name: "Product-Market Fit段階"
+  name_en: "Product-Market Fit"
+  duration: "6-18ヶ月"
+  goal: "製品と市場の適合性を達成"
+
+  pmf_definition:
+    description: "Product-Market Fitとは"
+    indicators:
+      - "ユーザーが自発的に他者に紹介する"
+      - "解約を防ぐための努力がほとんど必要ない"
+      - "需要に供給が追いつかない"
+      - "売上が口コミで伸びる"
+
+  pmf_metrics:
+    description: "PMFを測定する指標"
+    metrics:
+      - name: "Sean Ellis Survey"
+        question: "この製品が使えなくなったらどう感じますか？"
+        target: "「非常に残念」が40%以上"
+      - name: "NPS"
+        target: "+40以上"
+      - name: "月次リテンション"
+        target: "40%以上（B2C）、80%以上（B2B SaaS）"
+      - name: "LTV/CAC比率"
+        target: "3以上"
+      - name: "オーガニック成長率"
+        description: "広告なしでの成長率"
+        target: "月5-7%以上"
+
+  iteration_process:
+    description: "PMF達成のための反復プロセス"
+    steps:
+      - step: 1
+        name: "仮説設定"
+        tasks:
+          - "改善すべき指標を特定"
+          - "改善のための仮説を立てる"
+      - step: 2
+        name: "実験設計"
+        tasks:
+          - "A/Bテストの設計"
+          - "成功基準の定義"
+      - step: 3
+        name: "実装"
+        tasks:
+          - "最小限の変更を実装"
+          - "計測の準備"
+      - step: 4
+        name: "測定"
+        tasks:
+          - "データ収集"
+          - "統計的有意性の確認"
+      - step: 5
+        name: "学習"
+        tasks:
+          - "結果の分析"
+          - "次の仮説へ反映"
+
+  common_pivots:
+    description: "よくあるピボットの種類"
+    types:
+      - name: "ズームイン"
+        description: "製品の一機能を主力製品にする"
+      - name: "ズームアウト"
+        description: "製品全体を大きなソリューションの一機能にする"
+      - name: "顧客セグメント"
+        description: "異なる顧客層にフォーカス"
+      - name: "顧客ニーズ"
+        description: "同じ顧客の別のニーズを解決"
+      - name: "プラットフォーム"
+        description: "アプリをプラットフォームに（またはその逆）"
+      - name: "ビジネスアーキテクチャ"
+        description: "B2B↔B2C、ハイマージン↔ローマージン"
+      - name: "収益モデル"
+        description: "マネタイズ方法の変更"
+      - name: "チャネル"
+        description: "販売・配信チャネルの変更"
+      - name: "テクノロジー"
+        description: "同じ解決策を異なる技術で実現"
+
+# =============================================================================
+# フェーズ5: 成長段階 (Growth)
+# =============================================================================
+phase_5_growth:
+  name: "成長段階"
+  name_en: "Growth / Series A"
+  duration: "1-3年"
+  goal: "スケーラブルな成長エンジンの構築"
+
+  growth_engines:
+    description: "3つの成長エンジン"
+    engines:
+      - name: "Sticky Engine（定着型）"
+        focus: "リテンション向上"
+        key_metric: "チャーン率"
+        tactics:
+          - "オンボーディング改善"
+          - "エンゲージメント向上"
+          - "カスタマーサクセス強化"
+      - name: "Viral Engine（バイラル型）"
+        focus: "紹介による拡散"
+        key_metric: "バイラル係数（K）"
+        tactics:
+          - "紹介プログラム"
+          - "ソーシャルシェア機能"
+          - "口コミ促進"
+      - name: "Paid Engine（有料型）"
+        focus: "広告による獲得"
+        key_metric: "LTV > CAC"
+        tactics:
+          - "パフォーマンス広告"
+          - "コンテンツマーケティング"
+          - "SEO"
+
+  pirate_metrics:
+    name: "AARRR（海賊指標）"
+    stages:
+      - name: "Awareness（認知）"
+        metrics: ["インプレッション", "リーチ"]
+      - name: "Acquisition（獲得）"
+        metrics: ["訪問者数", "サインアップ率"]
+      - name: "Activation（活性化）"
+        metrics: ["オンボーディング完了率", "Aha Moment到達率"]
+      - name: "Retention（継続）"
+        metrics: ["DAU/MAU", "リテンション率"]
+      - name: "Revenue（収益）"
+        metrics: ["ARPU", "MRR", "LTV"]
+      - name: "Referral（紹介）"
+        metrics: ["NPS", "紹介率", "バイラル係数"]
+
+  team_scaling:
+    description: "チームの拡大"
+    hiring_priorities:
+      - phase: "10人まで"
+        roles:
+          - "エンジニア"
+          - "デザイナー"
+          - "カスタマーサクセス"
+      - phase: "10-30人"
+        roles:
+          - "マーケティング"
+          - "セールス"
+          - "オペレーション"
+          - "HR"
+      - phase: "30-100人"
+        roles:
+          - "ミドルマネジメント"
+          - "専門職（法務、財務）"
+          - "データサイエンティスト"
+
+    hiring_checklist:
+      - item: "採用戦略"
+        tasks:
+          - "求める人物像の定義"
+          - "採用チャネルの選定"
+          - "評価基準の策定"
+      - item: "オンボーディング"
+        tasks:
+          - "30-60-90日プランの作成"
+          - "メンター制度の導入"
+          - "必要ツールへのアクセス付与"
+
+  fundraising_series_a:
+    description: "シリーズA資金調達"
+    prerequisites:
+      - "明確なPMFの証拠"
+      - "月次成長率15-20%以上"
+      - "LTV/CAC > 3"
+      - "年間収益$1M以上（B2B SaaS目安）"
+
+    process:
+      - step: 1
+        name: "準備"
+        duration: "2-3ヶ月"
+        tasks:
+          - "ピッチデック作成"
+          - "データルーム準備"
+          - "財務モデル作成"
+          - "ターゲットVCリスト作成"
+      - step: 2
+        name: "投資家ミーティング"
+        duration: "1-2ヶ月"
+        tasks:
+          - "ウォームイントロの獲得"
+          - "ピッチミーティング"
+          - "パートナーミーティング"
+      - step: 3
+        name: "デューデリジェンス"
+        duration: "2-4週間"
+        tasks:
+          - "法的DD対応"
+          - "財務DD対応"
+          - "技術DD対応"
+      - step: 4
+        name: "クロージング"
+        duration: "2-4週間"
+        tasks:
+          - "タームシート交渉"
+          - "最終契約書締結"
+          - "資金着金確認"
+
+# =============================================================================
+# フェーズ6: スケール段階 (Scale)
+# =============================================================================
+phase_6_scale:
+  name: "スケール段階"
+  name_en: "Scale / Series B+"
+  duration: "2-5年"
+  goal: "市場支配と持続可能な成長の実現"
+
+  operational_scaling:
+    description: "オペレーションのスケール"
+    areas:
+      - name: "プロセスの標準化"
+        tasks:
+          - "SOPの作成"
+          - "ワークフローの自動化"
+          - "品質管理の仕組み構築"
+      - name: "技術インフラ"
+        tasks:
+          - "スケーラブルなアーキテクチャ"
+          - "モニタリング/アラート"
+          - "セキュリティ強化"
+      - name: "データ活用"
+        tasks:
+          - "データウェアハウス構築"
+          - "BIツール導入"
+          - "データドリブン意思決定"
+
+  market_expansion:
+    description: "市場拡大戦略"
+    strategies:
+      - name: "地理的拡大"
+        considerations:
+          - "現地法規制"
+          - "ローカライゼーション"
+          - "現地チーム構築"
+      - name: "製品拡大"
+        considerations:
+          - "隣接市場への展開"
+          - "アップセル/クロスセル"
+          - "新製品ライン"
+      - name: "顧客セグメント拡大"
+        considerations:
+          - "SMB → エンタープライズ"
+          - "新しい業界への展開"
+
+  organizational_development:
+    description: "組織開発"
+    elements:
+      - name: "カルチャー"
+        tasks:
+          - "ミッション/ビジョン/バリューの明文化"
+          - "カルチャーデックの作成"
+          - "オールハンズミーティング"
+      - name: "マネジメント"
+        tasks:
+          - "OKRの導入"
+          - "1on1の制度化"
+          - "評価制度の整備"
+      - name: "コンプライアンス"
+        tasks:
+          - "内部統制の強化"
+          - "SOC2取得"
+          - "GDPR/個人情報保護対応"
+
+# =============================================================================
+# 法的・行政手続き
+# =============================================================================
+legal_and_administrative:
+  name: "法的・行政手続き"
+
+  japan:
+    pre_incorporation:
+      description: "法人設立前"
+      checklist:
+        - item: "会社形態の選択"
+          options:
+            - name: "株式会社"
+              pros: ["信用力", "資金調達しやすい"]
+              cons: ["設立費用高い", "手続き複雑"]
+            - name: "合同会社（LLC）"
+              pros: ["設立費用安い", "柔軟な運営"]
+              cons: ["知名度低い", "株式発行不可"]
+        - item: "事業目的の決定"
+          notes: "将来の事業展開も考慮して幅広く設定"
+        - item: "商号（会社名）の決定"
+          notes: "商標調査、ドメイン取得可否確認"
+        - item: "本店所在地の決定"
+          options: ["自宅", "レンタルオフィス", "バーチャルオフィス"]
+        - item: "資本金の決定"
+          notes: "1円から可能だが、取引信用や融資審査を考慮"
+        - item: "発起人の決定"
+          notes: "設立時の株主"
+        - item: "役員構成の決定"
+          notes: "取締役、代表取締役、監査役"
+
+    incorporation:
+      description: "法人設立"
+      checklist:
+        - item: "定款作成"
+          tasks:
+            - "絶対的記載事項の記載"
+            - "相対的記載事項の検討"
+            - "電子定款 or 紙定款"
+        - item: "定款認証（株式会社の場合）"
+          cost: "約52,000円"
+          location: "公証役場"
+        - item: "資本金の払込"
+          notes: "発起人個人口座への振込"
+        - item: "登記申請"
+          cost: "株式会社: 150,000円〜 / 合同会社: 60,000円〜"
+          location: "法務局"
+        - item: "印鑑届出"
+          notes: "会社実印の届出"
+
+    post_incorporation:
+      description: "法人設立後"
+      checklist:
+        - item: "法人口座開設"
+          notes: "メガバンク、ネット銀行、信用金庫など"
+        - item: "税務届出"
+          tasks:
+            - "法人設立届出書（税務署）"
+            - "青色申告承認申請書"
+            - "給与支払事務所等の開設届出書"
+            - "源泉所得税の納期の特例の承認申請書"
+          deadline: "設立から2ヶ月以内"
+        - item: "都道府県・市区町村への届出"
+          tasks:
+            - "法人設立届出書"
+        - item: "社会保険"
+          tasks:
+            - "健康保険・厚生年金保険新規適用届（年金事務所）"
+            - "雇用保険適用事業所設置届（ハローワーク）"
+            - "労働保険関係成立届（労働基準監督署）"
+        - item: "各種許認可"
+          notes: "業種により必要な許認可を取得"
+
+  usa:
+    description: "米国での法人設立（デラウェア州C-Corp）"
+    checklist:
+      - item: "デラウェア州での法人設立"
+        options:
+          - name: "Stripe Atlas"
+            cost: "$500"
+            includes: ["設立", "銀行口座", "EIN"]
+          - name: "弁護士経由"
+            cost: "$3,000-10,000"
+      - item: "EIN（雇用者識別番号）取得"
+        description: "法人の納税者番号"
+      - item: "法人口座開設"
+        options: ["Mercury", "Brex", "SVB"]
+      - item: "Registered Agent契約"
+        description: "法的書類受取代行"
+      - item: "83(b) Election"
+        deadline: "株式取得から30日以内"
+        warning: "ファウンダー株式のベスティングがある場合必須"
+
+  founder_agreements:
+    description: "創業者間契約"
+    importance: "50%のスタートアップが共同創業者間の対立で失敗"
+    essential_elements:
+      - name: "株式配分"
+        considerations:
+          - "貢献度に基づく配分"
+          - "将来の希薄化を考慮"
+      - name: "ベスティング"
+        standard: "4年間、1年クリフ"
+        description: "1年経過で25%、以降月次で残り75%が確定"
+      - name: "IP譲渡"
+        description: "創業者が持つIPを会社に譲渡"
+      - name: "役割と責任"
+        description: "各創業者の担当領域を明確化"
+      - name: "意思決定プロセス"
+        description: "重要事項の決定方法"
+      - name: "退職条項"
+        description: "創業者が離脱する場合の株式の扱い"
+      - name: "競業避止"
+        description: "退職後の競合他社への参加制限"
+
+  intellectual_property:
+    description: "知的財産権"
+    checklist:
+      - item: "商標登録"
+        tasks:
+          - "ブランド名の商標調査"
+          - "ロゴの商標登録"
+          - "国際展開を見据えた海外商標"
+      - item: "特許"
+        considerations:
+          - "特許出願の必要性検討"
+          - "仮出願（Provisional）の活用"
+          - "PCT国際出願"
+      - item: "著作権"
+        notes: "ソフトウェアコードの著作権"
+      - item: "企業秘密（Trade Secret）"
+        tasks:
+          - "秘密情報管理体制"
+          - "NDA（秘密保持契約）テンプレート"
+      - item: "IP譲渡契約"
+        description: "従業員・外注からのIP譲渡"
+
+# =============================================================================
+# 資金調達
+# =============================================================================
+fundraising:
+  name: "資金調達"
+
+  stages:
+    - name: "ブートストラップ"
+      description: "自己資金での運営"
+      amount: "0円〜"
+      pros:
+        - "希薄化なし"
+        - "完全なコントロール"
+        - "収益志向になる"
+      cons:
+        - "成長速度の制限"
+        - "大きな投資ができない"
+
+    - name: "プレシード"
+      description: "アイデア〜MVP段階"
+      amount_jpy: "500万円〜3,000万円"
+      amount_usd: "$50K-$500K"
+      sources:
+        - "エンジェル投資家"
+        - "アクセラレーター"
+        - "クラウドファンディング"
+        - "友人・家族"
+        - "政府助成金"
+      typical_dilution: "5-15%"
+
+    - name: "シード"
+      description: "MVP〜初期トラクション"
+      amount_jpy: "3,000万円〜2億円"
+      amount_usd: "$500K-$3M"
+      sources:
+        - "シードVC"
+        - "エンジェル投資家"
+        - "マイクロVC"
+      typical_dilution: "10-25%"
+      key_milestones:
+        - "MVP完成"
+        - "初期顧客獲得"
+        - "チームの基盤"
+
+    - name: "シリーズA"
+      description: "PMF達成後の成長"
+      amount_jpy: "2億円〜10億円"
+      amount_usd: "$3M-$15M"
+      sources:
+        - "VC（シリーズA特化）"
+      typical_dilution: "15-30%"
+      key_milestones:
+        - "明確なPMF"
+        - "月次成長15-20%"
+        - "LTV/CAC > 3"
+        - "ARR $1M+（B2B SaaS）"
+
+    - name: "シリーズB"
+      description: "スケール拡大"
+      amount_jpy: "10億円〜50億円"
+      amount_usd: "$15M-$50M"
+      sources:
+        - "グロースVC"
+      typical_dilution: "10-25%"
+      key_milestones:
+        - "スケーラブルなビジネスモデル"
+        - "組織の拡大"
+        - "市場リーダーシップ"
+
+    - name: "シリーズC以降"
+      description: "市場支配・IPO準備"
+      amount_jpy: "50億円〜"
+      amount_usd: "$50M+"
+      sources:
+        - "レイトステージVC"
+        - "PE"
+        - "戦略的投資家"
+
+  japan_specific:
+    grants_and_subsidies:
+      - name: "創業補助金"
+        amount: "最大200万円"
+        note: "返済不要"
+      - name: "小規模事業者持続化補助金"
+        amount: "最大50万円"
+      - name: "IT導入補助金"
+        amount: "最大450万円"
+      - name: "ものづくり補助金"
+        amount: "最大1,000万円"
+
+    loans:
+      - name: "日本政策金融公庫 新創業融資"
+        amount: "最大3,000万円"
+        rate: "2-3%"
+        note: "無担保・無保証人"
+      - name: "信用保証協会付融資"
+        note: "信用保証協会が保証"
+
+  pitch_deck:
+    description: "ピッチデック構成"
+    slides:
+      - number: 1
+        title: "タイトル"
+        content: "会社名、ワンライナー、連絡先"
+      - number: 2
+        title: "問題"
+        content: "解決する問題の説明"
+      - number: 3
+        title: "解決策"
+        content: "製品/サービスの説明"
+      - number: 4
+        title: "市場規模"
+        content: "TAM/SAM/SOM"
+      - number: 5
+        title: "ビジネスモデル"
+        content: "収益化の方法"
+      - number: 6
+        title: "トラクション"
+        content: "成長指標、顧客事例"
+      - number: 7
+        title: "競合"
+        content: "競合分析、差別化"
+      - number: 8
+        title: "チーム"
+        content: "創業チームの紹介"
+      - number: 9
+        title: "財務計画"
+        content: "収支予測、KPI"
+      - number: 10
+        title: "調達"
+        content: "調達額、使途、マイルストーン"
+
+# =============================================================================
+# KPI・メトリクス
+# =============================================================================
+kpis_and_metrics:
+  name: "KPI・メトリクス"
+
+  saas_metrics:
+    revenue:
+      - name: "MRR (Monthly Recurring Revenue)"
+        description: "月次経常収益"
+        formula: "有料顧客数 × 月額単価"
+      - name: "ARR (Annual Recurring Revenue)"
+        description: "年次経常収益"
+        formula: "MRR × 12"
+      - name: "ARPU (Average Revenue Per User)"
+        description: "ユーザーあたり平均収益"
+        formula: "総収益 ÷ ユーザー数"
+
+    growth:
+      - name: "MoM Growth Rate"
+        description: "月次成長率"
+        formula: "(今月MRR - 先月MRR) ÷ 先月MRR"
+        benchmark:
+          good: "10%+"
+          great: "20%+"
+      - name: "Net Revenue Retention (NRR)"
+        description: "売上維持率"
+        formula: "(期首MRR + 拡大 - 縮小 - 解約) ÷ 期首MRR"
+        benchmark:
+          good: "100%+"
+          great: "120%+"
+
+    unit_economics:
+      - name: "CAC (Customer Acquisition Cost)"
+        description: "顧客獲得コスト"
+        formula: "セールス&マーケティング費用 ÷ 新規顧客数"
+      - name: "LTV (Customer Lifetime Value)"
+        description: "顧客生涯価値"
+        formula: "ARPU × 粗利率 ÷ 月次チャーン率"
+      - name: "LTV/CAC Ratio"
+        description: "ユニットエコノミクス健全性"
+        benchmark:
+          minimum: "3以上"
+          ideal: "5以上"
+      - name: "CAC Payback Period"
+        description: "CAC回収期間"
+        formula: "CAC ÷ (ARPU × 粗利率)"
+        benchmark:
+          good: "12ヶ月以内"
+          great: "6ヶ月以内"
+
+    retention:
+      - name: "Monthly Churn Rate"
+        description: "月次解約率"
+        formula: "解約顧客数 ÷ 期首顧客数"
+        benchmark:
+          b2c: "5-10%"
+          smb: "3-5%"
+          enterprise: "0.5-1%"
+      - name: "Logo Retention"
+        description: "顧客数維持率"
+        formula: "1 - チャーン率"
+      - name: "Dollar Retention"
+        description: "売上維持率"
+        formula: "NRRと同義"
+
+  consumer_metrics:
+    engagement:
+      - name: "DAU/MAU Ratio"
+        description: "スティッキネス"
+        benchmark:
+          good: "25%+"
+          great: "50%+"
+      - name: "Session Duration"
+        description: "セッション時間"
+      - name: "Sessions per User"
+        description: "ユーザーあたりセッション数"
+
+    retention:
+      - name: "D1/D7/D30 Retention"
+        description: "1日/7日/30日後リテンション"
+        benchmark:
+          d1: "40%+"
+          d7: "20%+"
+          d30: "10%+"
+      - name: "Cohort Retention Curve"
+        description: "コホートごとのリテンション推移"
+
+    growth:
+      - name: "Viral Coefficient (K)"
+        description: "バイラル係数"
+        formula: "招待数 × 招待からのコンバージョン率"
+        benchmark: "1以上で自然成長"
+      - name: "Organic vs Paid Mix"
+        description: "オーガニック対有料比率"
+        ideal: "オーガニック70%以上"
+
+  marketplace_metrics:
+    - name: "GMV (Gross Merchandise Value)"
+      description: "流通総額"
+    - name: "Take Rate"
+      description: "手数料率"
+      formula: "収益 ÷ GMV"
+    - name: "Liquidity"
+      description: "マッチング成立率"
+    - name: "Supply/Demand Balance"
+      description: "需給バランス"
+
+# =============================================================================
+# よくある失敗と対策
+# =============================================================================
+common_failures:
+  name: "よくある失敗と対策"
+
+  ideation_failures:
+    - failure: "自分だけが欲しいものを作る"
+      cause: "顧客検証不足"
+      prevention: "最低50人にインタビュー"
+    - failure: "市場規模が小さすぎる"
+      cause: "市場調査不足"
+      prevention: "TAM/SAM/SOMの算出"
+    - failure: "競合を無視"
+      cause: "楽観的思考"
+      prevention: "競合分析を徹底"
+
+  execution_failures:
+    - failure: "完璧を求めてローンチが遅れる"
+      cause: "恐怖心、完璧主義"
+      prevention: "MVPの概念を徹底"
+    - failure: "機能を追加しすぎる"
+      cause: "フィーチャークリープ"
+      prevention: "コア機能に集中"
+    - failure: "早すぎるスケール"
+      cause: "PMF前の拡大"
+      prevention: "PMF達成まで小さく"
+
+  team_failures:
+    - failure: "共同創業者間の対立"
+      cause: "期待値の不一致"
+      prevention: "創業者間契約の締結"
+    - failure: "不適切な人材採用"
+      cause: "早急な採用"
+      prevention: "カルチャーフィットの重視"
+    - failure: "権限委譲の失敗"
+      cause: "マイクロマネジメント"
+      prevention: "適切な権限委譲と信頼"
+
+  financial_failures:
+    - failure: "キャッシュフロー管理の失敗"
+      cause: "収支把握の甘さ"
+      prevention: "ランウェイの常時把握"
+    - failure: "調達のタイミングを逃す"
+      cause: "楽観的計画"
+      prevention: "常に6ヶ月前から準備"
+    - failure: "不適切なバリュエーション"
+      cause: "過大/過小評価"
+      prevention: "市場相場の理解"
+
+  yc_common_mistakes:
+    - "カンファレンスに時間を使いすぎる"
+    - "PMF前に採用しすぎる"
+    - "競合を気にしすぎる"
+    - "単一の顧客に依存"
+    - "顧客の声を無視"
+    - "自分の健康を犠牲にする"
+
+# =============================================================================
+# ツール・リソース
+# =============================================================================
+tools_and_resources:
+  name: "ツール・リソース"
+
+  development:
+    frontend:
+      - name: "React / Next.js"
+        use_case: "Webフロントエンド"
+      - name: "Flutter"
+        use_case: "クロスプラットフォームモバイル"
+    backend:
+      - name: "Node.js / Express"
+        use_case: "API開発"
+      - name: "Python / FastAPI"
+        use_case: "AI/ML統合"
+    database:
+      - name: "PostgreSQL"
+        use_case: "リレーショナルDB"
+      - name: "MongoDB"
+        use_case: "ドキュメントDB"
+      - name: "Redis"
+        use_case: "キャッシュ"
+    infrastructure:
+      - name: "Vercel"
+        use_case: "フロントエンドホスティング"
+      - name: "AWS / GCP"
+        use_case: "クラウドインフラ"
+      - name: "Railway / Render"
+        use_case: "簡易バックエンドホスティング"
+
+  no_code_low_code:
+    - name: "Bubble"
+      use_case: "Webアプリ構築"
+    - name: "Webflow"
+      use_case: "Webサイト構築"
+    - name: "Airtable"
+      use_case: "データベース/CRM"
+    - name: "Zapier"
+      use_case: "自動化"
+    - name: "Notion"
+      use_case: "ドキュメント/Wiki"
+
+  analytics:
+    - name: "Mixpanel"
+      use_case: "製品分析"
+    - name: "Amplitude"
+      use_case: "製品分析"
+    - name: "Google Analytics"
+      use_case: "Web分析"
+    - name: "Hotjar"
+      use_case: "ヒートマップ/録画"
+
+  customer_communication:
+    - name: "Intercom"
+      use_case: "カスタマーサポート"
+    - name: "Zendesk"
+      use_case: "ヘルプデスク"
+    - name: "HubSpot"
+      use_case: "CRM"
+
+  design:
+    - name: "Figma"
+      use_case: "UI/UXデザイン"
+    - name: "Canva"
+      use_case: "マーケティング素材"
+
+  legal:
+    - name: "Stripe Atlas"
+      use_case: "米国法人設立"
+    - name: "Clerky"
+      use_case: "スタートアップ法務書類"
+    - name: "freee"
+      use_case: "会計/法人設立（日本）"
+
+  learning_resources:
+    - name: "Y Combinator Startup School"
+      url: "https://www.startupschool.org/"
+      description: "無料のスタートアップ教育プログラム"
+    - name: "YC Library"
+      url: "https://www.ycombinator.com/library"
+      description: "YCのスタートアップアドバイス集"
+    - name: "Startup Playbook"
+      url: "https://playbook.samaltman.com/"
+      description: "Sam Altmanによるスタートアップガイド"
+
+# =============================================================================
+# 週次・月次チェックリスト
+# =============================================================================
+recurring_checklists:
+  name: "定期チェックリスト"
+
+  weekly:
+    - category: "プロダクト"
+      items:
+        - "主要KPIの確認"
+        - "ユーザーフィードバックの確認"
+        - "バグ/イシューのトリアージ"
+        - "次週のスプリント計画"
+    - category: "顧客"
+      items:
+        - "新規サインアップの確認"
+        - "解約顧客の分析"
+        - "サポートチケットの確認"
+    - category: "チーム"
+      items:
+        - "1on1ミーティング"
+        - "チーム週次ミーティング"
+        - "ブロッカーの解消"
+
+  monthly:
+    - category: "財務"
+      items:
+        - "月次決算の確認"
+        - "キャッシュフローの確認"
+        - "ランウェイの確認"
+        - "予実分析"
+    - category: "製品"
+      items:
+        - "月次KPIレビュー"
+        - "コホート分析"
+        - "NPS調査"
+        - "ロードマップの見直し"
+    - category: "組織"
+      items:
+        - "採用パイプラインの確認"
+        - "チーム満足度の確認"
+        - "OKR進捗確認"
+
+  quarterly:
+    - category: "戦略"
+      items:
+        - "OKR設定/レビュー"
+        - "競合分析のアップデート"
+        - "市場動向の確認"
+        - "ピボット/方向性の検討"
+    - category: "財務"
+      items:
+        - "四半期決算"
+        - "年間予算の見直し"
+        - "資金調達計画の確認"
+    - category: "法務"
+      items:
+        - "契約書の棚卸し"
+        - "知的財産の確認"
+        - "コンプライアンスチェック"

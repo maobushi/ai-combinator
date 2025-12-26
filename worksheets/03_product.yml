@@ -1,0 +1,296 @@
+# =============================================================================
+# Phase 3: MVP・プロダクト設計
+# =============================================================================
+# 完了条件: MVPが動作し、最初の有料顧客を獲得
+# 所要時間目安: 4-8週間
+# 次のフェーズへ: mvp.status が "launched" かつ first_customers.count >= 1
+# =============================================================================
+
+_meta:
+  phase: 3
+  name: "MVP・プロダクト設計"
+  status: "not_started"
+  started_at: null
+  completed_at: null
+  outputs:
+    - "pitch_deck.product"
+    - "pitch_deck.demo"
+
+# =============================================================================
+# 3.1 プロダクトビジョン [REQUIRED]
+# =============================================================================
+product_vision:
+  # プロダクトの北極星
+  north_star: ""              # 例: "全ての中小企業の経理をAIで自動化する"
+
+  # 5年後のビジョン
+  five_year_vision: ""
+
+  # プロダクト原則（意思決定の指針）
+  principles:
+    - name: ""
+      description: ""
+    - name: ""
+      description: ""
+    - name: ""
+      description: ""
+
+# =============================================================================
+# 3.2 MVP定義 [REQUIRED]
+# =============================================================================
+mvp:
+  # MVP戦略
+  strategy:
+    type: ""                  # landing_page / concierge / wizard_of_oz / prototype / full_mvp
+    rationale: ""             # なぜこのタイプを選んだか
+    build_time_weeks: null    # 構築にかける週数
+
+  # コア機能（3つまで）
+  core_features:
+    - name: ""
+      description: ""
+      user_story: ""          # "〜として、〜したい、なぜなら〜"
+      acceptance_criteria:
+        - ""
+      priority: "must_have"   # must_have / should_have / nice_to_have
+      effort: ""              # small / medium / large
+
+    - name: ""
+      description: ""
+      user_story: ""
+      acceptance_criteria:
+        - ""
+      priority: "must_have"
+      effort: ""
+
+    - name: ""
+      description: ""
+      user_story: ""
+      acceptance_criteria:
+        - ""
+      priority: "must_have"
+      effort: ""
+
+  # 意図的に含めない機能
+  out_of_scope:
+    - feature: ""
+      reason: ""              # なぜ含めないか
+      when_to_add: ""         # いつ追加するか
+
+  # 技術スタック
+  tech_stack:
+    frontend: ""
+    backend: ""
+    database: ""
+    hosting: ""
+    third_party_services:
+      - name: ""
+        purpose: ""
+
+  # MVP開発ロードマップ
+  roadmap:
+    week_1:
+      goals:
+        - ""
+      deliverables:
+        - ""
+    week_2:
+      goals:
+        - ""
+      deliverables:
+        - ""
+    week_3:
+      goals:
+        - ""
+      deliverables:
+        - ""
+    week_4:
+      goals:
+        - ""
+      deliverables:
+        - ""
+
+  # MVPステータス
+  status: "planning"          # planning / building / testing / launched
+  launch_date: null
+  demo_url: ""
+  github_repo: ""
+
+# =============================================================================
+# 3.3 ユーザー体験設計 [REQUIRED]
+# =============================================================================
+user_experience:
+  # オンボーディングフロー
+  onboarding:
+    step_1:
+      action: ""
+      time_seconds: null
+    step_2:
+      action: ""
+      time_seconds: null
+    step_3:
+      action: ""
+      time_seconds: null
+    total_time_seconds: null
+    target_completion_rate: null  # %
+
+  # Aha Moment（価値を実感する瞬間）
+  aha_moment:
+    description: ""           # 例: "最初の請求書が自動で仕訳される瞬間"
+    time_to_aha: ""           # 例: "登録後5分以内"
+    measurement: ""           # どう測定するか
+
+  # コアループ（繰り返し利用するフロー）
+  core_loop:
+    trigger: ""               # 何がきっかけで使うか
+    action: ""                # 何をするか
+    reward: ""                # 何が得られるか
+    frequency: ""             # daily / weekly / monthly
+
+# =============================================================================
+# 3.4 成功指標 [REQUIRED]
+# =============================================================================
+success_metrics:
+  # North Star Metric
+  north_star_metric:
+    name: ""                  # 例: "月間処理請求書数"
+    current_value: null
+    target_value: null
+    rationale: ""             # なぜこの指標を選んだか
+
+  # 主要KPI
+  kpis:
+    activation:
+      metric: ""              # 例: "オンボーディング完了率"
+      target: null
+      current: null
+
+    engagement:
+      metric: ""              # 例: "週間アクティブユーザー率"
+      target: null
+      current: null
+
+    retention:
+      metric: ""              # 例: "月次リテンション率"
+      target: null
+      current: null
+
+    revenue:
+      metric: ""              # 例: "MRR"
+      target: null
+      current: null
+
+  # 追跡ツール
+  analytics_tools:
+    - name: ""
+      purpose: ""
+
+# =============================================================================
+# 3.5 初期顧客獲得 [REQUIRED]
+# =============================================================================
+first_customers:
+  # 目標
+  target_count: 10            # MVP段階での目標顧客数
+  current_count: 0
+
+  # 獲得チャネル
+  acquisition_channels:
+    - channel: ""             # 例: "インタビュー対象者"
+      strategy: ""
+      expected_conversions: null
+
+    - channel: ""             # 例: "個人ネットワーク"
+      strategy: ""
+      expected_conversions: null
+
+  # ウェイトリスト
+  waitlist:
+    count: 0
+    signup_page_url: ""
+    conversion_rate_target: null  # ウェイトリスト→有料顧客
+
+  # 初期顧客リスト
+  customers:
+    - name: ""
+      company: ""
+      signed_up_date: ""
+      plan: ""
+      mrr: null
+      status: ""              # active / churned
+      nps_score: null
+      testimonial: ""
+      can_be_reference: false
+
+  # 初期フィードバック
+  feedback_summary:
+    top_praise:
+      - ""
+    top_complaints:
+      - ""
+    top_feature_requests:
+      - ""
+
+# =============================================================================
+# 3.6 ローンチ計画 [REQUIRED]
+# =============================================================================
+launch:
+  # ローンチ戦略
+  strategy:
+    type: ""                  # soft_launch / public_launch / beta_invite
+    target_date: ""
+
+  # ローンチチャネル
+  channels:
+    - name: "Product Hunt"
+      planned: false
+      date: ""
+      preparation:
+        - ""
+
+    - name: "Twitter/X"
+      planned: false
+      date: ""
+      preparation:
+        - ""
+
+    - name: ""
+      planned: false
+      date: ""
+      preparation:
+        - ""
+
+  # ローンチ前チェックリスト
+  pre_launch_checklist:
+    - item: "ランディングページ完成"
+      completed: false
+    - item: "決済システム設定"
+      completed: false
+    - item: "オンボーディングフロー完成"
+      completed: false
+    - item: "サポート体制準備"
+      completed: false
+    - item: "バグ修正完了"
+      completed: false
+    - item: "ベータユーザーからのフィードバック反映"
+      completed: false
+
+# =============================================================================
+# Phase 3 完了チェックリスト
+# =============================================================================
+_completion_checklist:
+  - item: "MVPのコア機能が3つ定義されている"
+    completed: false
+  - item: "技術スタックが決定している"
+    completed: false
+  - item: "開発ロードマップがある"
+    completed: false
+  - item: "オンボーディングフローが設計されている"
+    completed: false
+  - item: "Aha Momentが定義されている"
+    completed: false
+  - item: "North Star Metricが設定されている"
+    completed: false
+  - item: "MVPが動作している"
+    completed: false
+  - item: "最初の有料顧客を獲得した"
+    completed: false

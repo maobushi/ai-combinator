@@ -1,0 +1,427 @@
+# =============================================================================
+# Phase 6: メトリクス追跡・コホート分析
+# =============================================================================
+# ユニットエコノミクスを継続的に監視し、改善するためのトラッキングシート
+# =============================================================================
+
+_meta:
+  phase: 6
+  name: "メトリクス追跡・コホート分析"
+  importance: "CRITICAL"
+  status: "not_started"
+
+# =============================================================================
+# ダッシュボード：毎週更新する数値
+# =============================================================================
+weekly_dashboard:
+  last_updated: ""
+
+  # 収益指標
+  revenue:
+    mrr:
+      current: null
+      previous_week: null
+      wow_change: null        # Week over Week
+      target: 4000000
+
+    arr:
+      current: null           # = MRR × 12
+
+    new_mrr:
+      current: null           # 今週の新規MRR
+      previous_week: null
+
+    churned_mrr:
+      current: null           # 今週の解約MRR
+      previous_week: null
+
+    expansion_mrr:
+      current: null           # アップセル/アップグレード
+      previous_week: null
+
+    net_new_mrr:
+      current: null           # = new + expansion - churned
+      previous_week: null
+
+  # 顧客指標
+  customers:
+    total:
+      current: null
+      previous_week: null
+
+    new:
+      current: null
+      previous_week: null
+
+    churned:
+      current: null
+      previous_week: null
+
+    net_new:
+      current: null
+
+  # ユニットエコノミクス（月次で更新）
+  unit_economics:
+    arpu: null
+    cac: null
+    ltv: null
+    ltv_cac_ratio: null
+    cac_payback_months: null
+    gross_margin_percent: null
+    monthly_churn_percent: null
+    nrr_percent: null
+
+  # ヘルスチェック
+  health_status:
+    ltv_cac: ""               # healthy / warning / critical
+    cac_payback: ""
+    churn: ""
+    nrr: ""
+    overall: ""
+
+# =============================================================================
+# 月次メトリクス履歴
+# =============================================================================
+monthly_history:
+  - month: "2025-01"
+    # 収益
+    mrr: null
+    arr: null
+    new_mrr: null
+    expansion_mrr: null
+    contraction_mrr: null
+    churned_mrr: null
+    net_new_mrr: null
+
+    # 顧客
+    total_customers: null
+    new_customers: null
+    churned_customers: null
+
+    # ユニットエコノミクス
+    arpu: null
+    cac: null
+    ltv: null
+    ltv_cac_ratio: null
+    gross_margin: null
+    logo_churn_rate: null
+    revenue_churn_rate: null
+    nrr: null
+
+    # 効率性
+    burn_rate: null
+    runway_months: null
+    revenue_per_employee: null
+
+  - month: "2025-02"
+    mrr: null
+    # ... (同じ構造)
+
+  # 以降、月ごとに追加
+
+# =============================================================================
+# コホート分析：リテンション
+# =============================================================================
+cohort_retention:
+  description: |
+    コホート = 同じ月に獲得した顧客グループ
+    各コホートが時間経過でどれだけ残っているかを追跡
+
+  # 顧客数リテンション
+  logo_retention:
+    - cohort: "2025-01"
+      initial_customers: null
+      month_1: null           # % remaining
+      month_2: null
+      month_3: null
+      month_6: null
+      month_12: null
+
+    - cohort: "2025-02"
+      initial_customers: null
+      month_1: null
+      month_2: null
+      month_3: null
+      month_6: null
+      month_12: null
+
+  # 収益リテンション（NRR）
+  revenue_retention:
+    - cohort: "2025-01"
+      initial_mrr: null
+      month_1: null           # % of initial MRR (can be >100%)
+      month_2: null
+      month_3: null
+      month_6: null
+      month_12: null
+
+  # コホート分析からの洞察
+  insights:
+    best_performing_cohort: ""
+    worst_performing_cohort: ""
+    common_drop_off_point: ""  # いつ解約が多いか
+    improvement_actions:
+      - ""
+
+# =============================================================================
+# コホート分析：LTV
+# =============================================================================
+cohort_ltv:
+  description: |
+    コホートごとのLTVを追跡し、時系列での改善を測定
+
+  - cohort: "2025-01"
+    customers: null
+    total_revenue_to_date: null
+    avg_lifespan_months: null
+    realized_ltv: null        # これまでに実現したLTV
+    projected_ltv: null       # 予測LTV
+
+  - cohort: "2025-02"
+    customers: null
+    total_revenue_to_date: null
+    avg_lifespan_months: null
+    realized_ltv: null
+    projected_ltv: null
+
+# =============================================================================
+# CAC分析：チャネル別
+# =============================================================================
+cac_by_channel:
+  last_updated: ""
+
+  channels:
+    - name: "オーガニック（SEO）"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      ltv_cac_ratio: null
+      trend: ""               # improving / stable / worsening
+
+    - name: "オーガニック（SNS）"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      ltv_cac_ratio: null
+      trend: ""
+
+    - name: "Google Ads"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      ltv_cac_ratio: null
+      trend: ""
+
+    - name: "Facebook/Instagram Ads"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      ltv_cac_ratio: null
+      trend: ""
+
+    - name: "紹介プログラム"
+      monthly_spend: null     # インセンティブコスト
+      monthly_customers: null
+      cac: null
+      ltv_cac_ratio: null
+      trend: ""
+
+    - name: "アウトバウンド営業"
+      monthly_spend: null
+      monthly_customers: null
+      cac: null
+      ltv_cac_ratio: null
+      trend: ""
+
+  # Blended CAC
+  blended:
+    total_spend: null
+    total_customers: null
+    cac: null
+
+  # チャネルミックス最適化
+  optimization:
+    best_channel: ""
+    worst_channel: ""
+    recommended_reallocation: ""
+
+# =============================================================================
+# 解約分析
+# =============================================================================
+churn_analysis:
+  last_updated: ""
+
+  # 今月の解約
+  current_month:
+    churned_customers: null
+    churned_mrr: null
+    logo_churn_rate: null
+    revenue_churn_rate: null
+
+  # 解約理由の内訳
+  reasons:
+    - reason: "価格が高い"
+      count: null
+      percent: null
+      preventable: true
+      action: ""
+
+    - reason: "機能不足"
+      count: null
+      percent: null
+      preventable: true
+      action: ""
+
+    - reason: "競合に乗り換え"
+      count: null
+      percent: null
+      preventable: true
+      action: ""
+
+    - reason: "事業終了/予算削減"
+      count: null
+      percent: null
+      preventable: false
+      action: ""
+
+    - reason: "使わなくなった"
+      count: null
+      percent: null
+      preventable: true
+      action: ""
+
+  # 解約予測（ヘルススコア）
+  at_risk_customers:
+    - customer: ""
+      health_score: null      # 1-100
+      risk_level: ""          # high / medium / low
+      signals:
+        - ""
+      intervention: ""
+
+  # 解約削減の取り組み
+  reduction_initiatives:
+    - initiative: ""
+      started: ""
+      impact_on_churn: ""
+      status: ""
+
+# =============================================================================
+# 拡大収益（Expansion Revenue）分析
+# =============================================================================
+expansion_analysis:
+  last_updated: ""
+
+  # 今月の拡大収益
+  current_month:
+    expansion_mrr: null
+    upsell_mrr: null          # 上位プランへの移行
+    cross_sell_mrr: null      # 追加製品/機能
+    seat_expansion_mrr: null  # シート数増加
+
+  # 拡大率
+  expansion_rate:
+    formula: "拡大MRR ÷ 期首MRR × 100"
+    value: null               # %
+
+  # Net Revenue Retention
+  nrr:
+    formula: "(期首MRR + 拡大 - 縮小 - 解約) ÷ 期首MRR × 100"
+    value: null
+    target: 120               # 優良SaaSは120%+
+
+  # 拡大の機会
+  expansion_opportunities:
+    - customer: ""
+      current_plan: ""
+      current_mrr: null
+      expansion_potential: null
+      trigger: ""             # いつアプローチするか
+      playbook: ""            # どうアプローチするか
+
+# =============================================================================
+# ファネル分析
+# =============================================================================
+funnel_metrics:
+  last_updated: ""
+
+  # 獲得ファネル
+  acquisition_funnel:
+    - stage: "Visitor"
+      count: null
+      conversion_to_next: null
+
+    - stage: "Signup"
+      count: null
+      conversion_to_next: null
+
+    - stage: "Activated"       # Aha Moment到達
+      count: null
+      conversion_to_next: null
+
+    - stage: "Trial → Paid"
+      count: null
+      conversion_to_next: null
+
+    - stage: "Paying Customer"
+      count: null
+
+  # ファネル効率
+  efficiency:
+    visitor_to_customer: null  # %
+    signup_to_customer: null   # %
+    trial_to_paid: null        # %
+
+  # ボトルネック
+  bottleneck:
+    stage: ""
+    conversion_rate: null
+    benchmark: null
+    gap: null
+    improvement_hypothesis: ""
+
+# =============================================================================
+# 予測 vs 実績
+# =============================================================================
+forecast_vs_actual:
+  - month: ""
+    metric: "MRR"
+    forecast: null
+    actual: null
+    variance: null            # %
+    explanation: ""
+
+  - month: ""
+    metric: "New Customers"
+    forecast: null
+    actual: null
+    variance: null
+    explanation: ""
+
+  - month: ""
+    metric: "Churn Rate"
+    forecast: null
+    actual: null
+    variance: null
+    explanation: ""
+
+# =============================================================================
+# アクションアイテム
+# =============================================================================
+action_items:
+  # メトリクスから導き出されたアクション
+  from_metrics:
+    - metric: ""
+      issue: ""
+      action: ""
+      owner: ""
+      due_date: ""
+      status: ""
+
+  # 週次レビューでのアクション
+  from_weekly_review:
+    - date: ""
+      insight: ""
+      action: ""
+      owner: ""
+      status: ""
